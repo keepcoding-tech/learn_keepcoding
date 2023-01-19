@@ -1,8 +1,5 @@
-:root {
-  --color: #f8f9fa;
+[data-theme='dark'] {
+  --font-color: #f8f9fa;
   --background-color: #202124;
   --link-color: #00bcd4;
-  --main-headline-color: #e91e63;
-  --accent-background-color: #00bcd4;
-  --accent-color: #050505;
 }

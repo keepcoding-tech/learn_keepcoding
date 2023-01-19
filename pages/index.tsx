@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
+import ToggleTheme from '../components/theme/toggle/ToggleTheme';
 
 const Home: NextPage = () => {
-  return <div>Welcome to Docs KeepCoding!!</div>;
+  return (
+    <>
+      <ToggleTheme />
+    </>
+  );
 };
 
 export default Home;
