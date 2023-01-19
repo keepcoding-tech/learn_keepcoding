@@ -1,5 +1,4 @@
 import React from 'react';
-
 import style from './BaseTemplate.module.css';
 
 export interface IBaseTemplate {

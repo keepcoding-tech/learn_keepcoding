@@ -8,17 +8,15 @@ body {
 }
 
 /* Color Scheme */
-:root {
-  color-scheme: dark light;
-}
+@import 'light.css';
+@import 'dark.css';
 
 body {
-  color: #f8f9fa;
-  background-color: #202124;
+  color: var(--font-color);
+  background-color: var(--background-color);
 }
 
-/* General Styling */
 a {
-  color: inherit;
+  color: var(--link-color);
   text-decoration: none;
 }
