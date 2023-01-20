@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import '../styles/globals.css';
@@ -5,9 +6,11 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <PrimaryLayout>
-        <Component {...pageProps} />
-      </PrimaryLayout>
+      <SessionProvider session={pageProps.session}>
+        <PrimaryLayout>
+          <Component {...pageProps} />
+        </PrimaryLayout>
+      </SessionProvider>
     </>
   );
 }
