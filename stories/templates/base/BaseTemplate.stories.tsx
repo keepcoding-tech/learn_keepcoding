@@ -1,9 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import BaseTemplate, {
   IBaseTemplate,
 } from '../../../components/templates/base/BaseTemplate';
-
 import { mocksBaseTemplateProps } from '../../../components/templates/base/BaseTemplate.mocks';
 
 export default {

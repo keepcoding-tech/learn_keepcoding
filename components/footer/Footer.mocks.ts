@@ -4,4 +4,4 @@ const footer: IFooter = {
   footerContent: 'Powered by © 2023 keepcoding',
 };
 
-export const mocksFooter = { footer };
+export const mocksFooterProps = { footer };

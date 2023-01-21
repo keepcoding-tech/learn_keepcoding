@@ -1,0 +1,4 @@
+.headerText,
+.headerBox {
+  flex-grow: 1;
+}
