@@ -4,4 +4,4 @@ const primary: IPrimaryLayout = {
   children: 'Hello, World!!',
 };
 
-export const mocksPrimaryLayout = { primary };
+export const mocksPrimaryLayoutProps = { primary };

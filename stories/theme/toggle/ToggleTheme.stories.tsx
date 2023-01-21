@@ -1,10 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import ToggleTheme, {
   IToggleTheme,
 } from '../../../components/theme/toggle/ToggleTheme';
-
-import { mocksToggleTheme } from '../../../components/theme/toggle/ToggleTheme.mocks';
+import { mocksToggleThemeProps } from '../../../components/theme/toggle/ToggleTheme.mocks';
 
 export default {
   title: 'theme/ToggleTheme',
@@ -19,5 +17,5 @@ const Template: ComponentStory<typeof ToggleTheme> = (args) => (
 export const ToggleDarkTheme = Template.bind({});
 
 ToggleDarkTheme.args = {
-  ...mocksToggleTheme.toggleDark,
+  ...mocksToggleThemeProps.toggleDark,
 } as IToggleTheme;
