@@ -21,6 +21,12 @@ const options = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  callbacks: {
+    async session({ session, user }: { session: any; user: any }) {
+      session.user.role = user.role;
+      return session;
+    },
+  },
 };
 
 export default authHandler;
