@@ -10,8 +10,8 @@ export interface IPrimaryLayout {
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
-  const { data: session } = useSession();
-  const signInOrOut = session ? 'Logout' : 'Login';
+  const { data: session, status } = useSession();
+  const sessionStatus = status === 'unauthenticated' ? 'Login' : 'Logout';
 
   return (
     <>
@@ -19,7 +19,11 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
         <title>Docs KeepCoding</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header logoText="Docs KeepCoding" signInOrOut={signInOrOut} />
+      <Header
+        logoText="Docs KeepCoding"
+        sessionStatus={sessionStatus}
+        email={session?.user?.email}
+      />
       <main className={style.main}>{children}</main>
       <Footer footerContent="Powered by © 2023 keepcoding" />
     </>
