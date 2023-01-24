@@ -1,3 +1,4 @@
+import { Box, Container } from '@mui/system';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import React from 'react';
@@ -19,13 +20,15 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
         <title>Docs KeepCoding</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header
-        logoText="Docs KeepCoding"
-        sessionStatus={sessionStatus}
-        email={session?.user?.email}
-      />
-      <main className={style.main}>{children}</main>
-      <Footer footerContent="Powered by © 2023 keepcoding" />
+      <Box className={style.box}>
+        <Header
+          logoText="Docs KeepCoding"
+          sessionStatus={sessionStatus}
+          email={session?.user?.email}
+        />
+        <Container className={style.container}>{children}</Container>
+        <Footer footerContent="Powered by © 2023 keepcoding" />
+      </Box>
     </>
   );
 };
