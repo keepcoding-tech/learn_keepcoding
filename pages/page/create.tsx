@@ -1,90 +1,172 @@
+import { Alert, Box, Button, Grid, TextField } from '@mui/material';
 import { NextPage } from 'next';
+import { useSession } from 'next-auth/react';
 import Router from 'next/router';
 import React, { useState } from 'react';
+import PermissionProvider from '../../components/permission-provider/PermissionProvider';
 
 const Create: NextPage = () => {
-  const [pageId, setPageId] = useState('');
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const { data: session } = useSession();
+  const [alert, setAlert] = useState(null);
+  const [page, setPage] = useState({
+    pageId: '',
+    title: '',
+    content: '',
+  });
 
-  const submitData = async (e: React.SyntheticEvent) => {
+  async function submitData(e: React.SyntheticEvent) {
     e.preventDefault();
-    try {
-      const body = { pageId, title, content };
-      await fetch('/api/page', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+    fetch('/api/page/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(page),
+    })
+      .then((response) => response.json())
+      .then(async (response) => {
+        if (response.error) {
+          setAlert(response.error);
+        }
+        await Router.push('/page/drafts');
       });
-      await Router.push('/page/drafts');
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  }
+
+  function handleChange(event: any) {
+    const value = event.target.value;
+    setPage({
+      ...page,
+      [event.target.id]: value,
+    });
+  }
 
   return (
     <>
-      <div>
-        <form onSubmit={submitData}>
-          <h1>New Draft</h1>
-          <input
-            autoFocus
-            onChange={(e) => setPageId(e.target.value)}
-            placeholder="Page id"
-            type="text"
-            value={pageId}
-          />
-          <input
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
-            type="text"
-            value={title}
-          />
-          <textarea
-            cols={50}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Content"
-            rows={8}
-            value={content}
-          />
-          <input
-            disabled={!content || !title || !pageId}
-            type="submit"
-            value="Create"
-          />
-          <a className="back" href="#" onClick={() => Router.push('/')}>
-            or Cancel
-          </a>
-        </form>
-      </div>
-      <style jsx>{`
-        .page {
-          background: var(--geist-background);
-          padding: 3rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        input[type='text'],
-        textarea {
-          width: 100%;
-          padding: 0.5rem;
-          margin: 0.5rem 0;
-          border-radius: 0.25rem;
-          border: 0.125rem solid rgba(0, 0, 0, 0.2);
-        }
-
-        input[type='submit'] {
-          background: #ececec;
-          border: 0;
-          padding: 1rem 2rem;
-        }
-
-        .back {
-          margin-left: 1rem;
-        }
-      `}</style>
+      <PermissionProvider session={session}>
+        {alert ? <Alert severity="error">{alert}</Alert> : null}
+        <Box component="form">
+          <Grid
+            container
+            rowSpacing={2}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
+            <Grid item xs={6}>
+              <TextField
+                id="pageId"
+                label="Page Id"
+                onChange={handleChange}
+                fullWidth
+                sx={{
+                  input: {
+                    color: 'var(--font-color)',
+                  },
+                  '& label.Mui-focused': {
+                    color: 'var(--font-color)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused fieldset': {
+                      'border-color': 'var(--font-color)',
+                    },
+                  },
+                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
+                    color: 'var(--font-color)',
+                  },
+                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'var(--font-color)',
+                  },
+                  // '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                  //   backgroundColor: '#303134',
+                  // },
+                }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                id="title"
+                label="Title"
+                onChange={handleChange}
+                fullWidth
+                sx={{
+                  input: {
+                    color: 'var(--font-color)',
+                  },
+                  '& label.Mui-focused': {
+                    color: 'var(--font-color)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused fieldset': {
+                      'border-color': 'var(--font-color)',
+                    },
+                  },
+                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
+                    color: 'var(--font-color)',
+                  },
+                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'var(--font-color)',
+                  },
+                  // '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
+                  //   backgroundColor: '#303134',
+                  // },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="content"
+                label="Page Content"
+                multiline
+                minRows={13}
+                onChange={handleChange}
+                fullWidth
+                sx={{
+                  textarea: {
+                    color: 'var(--font-color)',
+                  },
+                  '& label.Mui-focused': {
+                    color: 'var(--font-color)',
+                  },
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused fieldset': {
+                      'border-color': 'var(--font-color)',
+                    },
+                  },
+                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
+                    color: 'var(--font-color)',
+                  },
+                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'var(--font-color)',
+                  },
+                  // '.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input': {
+                  //   backgroundColor: '#303134',
+                  // },
+                  // '.css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root': {
+                  //   padding: 0,
+                  // },
+                }}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Button
+                id="create"
+                variant="contained"
+                disabled={!page.pageId || !page.title || !page.content}
+                onClick={submitData}
+              >
+                Create
+              </Button>
+            </Grid>
+            <Grid item xs={1}>
+              <Button
+                id="cancel"
+                variant="contained"
+                onClick={() => {
+                  setAlert(null);
+                }}
+              >
+                Cancel
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+      </PermissionProvider>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
-import { getSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import PermissionProvider from '../../components/permission-provider/PermissionProvider';
 import PageTemplate, {
   IPageTemplate,
@@ -36,9 +36,11 @@ type Props = {
 };
 
 const Drafts: NextPage<Props> = (props) => {
+  const { data: session } = useSession();
+
   return (
     <>
-      <PermissionProvider>
+      <PermissionProvider session={session}>
         <h1>My Drafts</h1>
         <main>
           {props.drafts.map((page) => (
