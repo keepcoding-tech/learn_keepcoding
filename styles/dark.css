@@ -1,5 +1,6 @@
 [data-theme='dark'] {
-  --font-color: #f8f9fa;
+  --title-font-color: #e8eaed;
+  --font-color: #c4c8cc;
   --background-color: #202124;
   --link-color: #00bcd4;
 }

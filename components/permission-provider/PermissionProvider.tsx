@@ -1,18 +1,18 @@
 import Typography from '@mui/material/Typography';
-import { useSession } from 'next-auth/react';
+import { Session } from 'next-auth';
 import React from 'react';
 
 export interface IPermissionProvider {
   children: any;
+  session: Session | null;
 }
 
-const PermissionProvider: React.FC<IPermissionProvider> = ({ children }) => {
-  const { data: session } = useSession();
-  const user: any = session?.user;
+const PermissionProvider: React.FC<IPermissionProvider> = (provider) => {
+  const user: any = provider.session?.user;
 
   // render content if the user has admin role
-  if (session && user.role === 'ADMIN') {
-    return <>{children}</>;
+  if (provider.session && user.role === 'ADMIN') {
+    return <>{provider.children}</>;
   }
 
   return (

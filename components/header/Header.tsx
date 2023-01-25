@@ -14,21 +14,27 @@ export interface IHeader {
   email: string | null | undefined;
 }
 
-const Header: React.FC<IHeader> = ({ logoText, sessionStatus, email }) => {
+const Header: React.FC<IHeader> = (header) => {
   return (
     <Box className={style.headerBox}>
       <AppBar position="static" color="transparent">
         <Toolbar>
-          <Typography className={style.headerText} variant="h6">
-            {logoText}
+          <Typography
+            className={style.headerText}
+            variant="h6"
+            color="var(--title-font-color)"
+          >
+            {header.logoText}
           </Typography>
-          <h5>{email}</h5>
+          <h5>{header.email}</h5>
           <ToggleTheme />
           <Button
             color="inherit"
-            onClick={() => (sessionStatus === 'Logout' ? signOut() : signIn())}
+            onClick={() =>
+              header.sessionStatus === 'Logout' ? signOut() : signIn()
+            }
           >
-            {sessionStatus}
+            {header.sessionStatus}
           </Button>
         </Toolbar>
       </AppBar>
