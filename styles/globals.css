@@ -2,7 +2,6 @@
 *,
 html,
 body {
-  font-family: Cascadia Mono, monospace;
   margin: 0;
   padding: 0;
 }
@@ -11,12 +10,72 @@ body {
 @import 'light.css';
 @import 'dark.css';
 
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+
+/* General Styles */
 body {
-  color: var(--font-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
+  color: var(--font-color);
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Typography */
+p {
+  margin: 0 0 1.3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.625em;
+  line-height: 1.55;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.58;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.625em;
+  line-height: 1.62;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.25em;
+  line-height: 1.65;
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 0.813em;
+  line-height: 1.77;
+  font-weight: 700;
 }

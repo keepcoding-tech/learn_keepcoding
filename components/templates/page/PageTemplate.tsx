@@ -1,7 +1,7 @@
 import { CardContent, Typography } from '@mui/material';
 import Router from 'next/router';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import MarkdownPreview from '../../markdown/MarkdownPreview';
 
 export interface IPageTemplate {
   id: string;
@@ -22,7 +22,7 @@ const PageTemplate: React.FC<IPageTemplate> = (page) => {
         by {page.author?.name || page.author?.email}
       </Typography>
       <br />
-      <ReactMarkdown>{page.content}</ReactMarkdown>
+      <MarkdownPreview>{page.content}</MarkdownPreview>
     </CardContent>
   );
 };
