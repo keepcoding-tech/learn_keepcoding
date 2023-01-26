@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
 import React, { useState } from 'react';
+import MarkdownEditor from '../../components/markdown/MarkdownEditor';
 import PermissionProvider from '../../components/permission-provider/PermissionProvider';
 
 const Create: NextPage = () => {
@@ -49,99 +50,13 @@ const Create: NextPage = () => {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid item xs={6}>
-              <TextField
-                id="pageId"
-                label="Page Id"
-                onChange={handleChange}
-                fullWidth
-                sx={{
-                  input: {
-                    color: 'var(--font-color)',
-                  },
-                  '& label.Mui-focused': {
-                    color: 'var(--font-color)',
-                  },
-                  '& .MuiOutlinedInput-root': {
-                    '&.Mui-focused fieldset': {
-                      'border-color': 'var(--font-color)',
-                    },
-                  },
-                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                    color: 'var(--font-color)',
-                  },
-                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                    borderColor: 'var(--font-color)',
-                  },
-                  // '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                  //   backgroundColor: '#303134',
-                  // },
-                }}
-              />
+              <TextField id="pageId" onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                id="title"
-                label="Title"
-                onChange={handleChange}
-                fullWidth
-                sx={{
-                  input: {
-                    color: 'var(--font-color)',
-                  },
-                  '& label.Mui-focused': {
-                    color: 'var(--font-color)',
-                  },
-                  '& .MuiOutlinedInput-root': {
-                    '&.Mui-focused fieldset': {
-                      'border-color': 'var(--font-color)',
-                    },
-                  },
-                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                    color: 'var(--font-color)',
-                  },
-                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                    borderColor: 'var(--font-color)',
-                  },
-                  // '.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                  //   backgroundColor: '#303134',
-                  // },
-                }}
-              />
+              <TextField id="title" onChange={handleChange} fullWidth />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                id="content"
-                label="Page Content"
-                multiline
-                minRows={13}
-                onChange={handleChange}
-                fullWidth
-                sx={{
-                  textarea: {
-                    color: 'var(--font-color)',
-                  },
-                  '& label.Mui-focused': {
-                    color: 'var(--font-color)',
-                  },
-                  '& .MuiOutlinedInput-root': {
-                    '&.Mui-focused fieldset': {
-                      'border-color': 'var(--font-color)',
-                    },
-                  },
-                  '.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                    color: 'var(--font-color)',
-                  },
-                  '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                    borderColor: 'var(--font-color)',
-                  },
-                  // '.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input': {
-                  //   backgroundColor: '#303134',
-                  // },
-                  // '.css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root': {
-                  //   padding: 0,
-                  // },
-                }}
-              />
+              <MarkdownEditor id="content" />
             </Grid>
             <Grid item xs={1}>
               <Button
