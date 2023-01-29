@@ -28,17 +28,27 @@ model Account {
   @@map("accounts")
 }
 
-model Page {
-  id        String  @id @default(cuid())
+model Document {
+  id        String   @id @unique
   title     String
   content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  String?
+  category  String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  published Boolean  @default(true)
+  authorId  String?  @map("author_id")
+  author    User?    @relation(fields: [authorId], references: [id])
 
-  @@unique([id])
-  @@map("page")
+  @@map("documents")
 }
+
+// TODO: add documents hierarchys
+// model DocumentsHierarchy {
+//   id        String     @id @unique @default(cuid())
+//   documents Document[]
+
+//   @@map("documents_hierarchys")
+// }
 
 model Session {
   id           String   @id @default(cuid())
@@ -51,16 +61,16 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
+  email         String?    @unique
+  emailVerified DateTime?  @map("email_verified")
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  role          String?   @default("USER")
+  createdAt     DateTime   @default(now()) @map(name: "created_at")
+  updatedAt     DateTime   @updatedAt @map(name: "updated_at")
+  role          String?    @default("USER")
   accounts      Account[]
-  pages         Page[]
+  pages         Document[]
   sessions      Session[]
 
   @@map(name: "users")

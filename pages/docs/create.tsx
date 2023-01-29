@@ -1,7 +1,14 @@
-import { Alert, Box, Button, Grid, TextField } from '@mui/material';
+import {
+  Alert,
+  Box,
+  Button,
+  Grid,
+  MenuItem,
+  Select,
+  TextField,
+} from '@mui/material';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
-import Router from 'next/router';
 import React, { useState } from 'react';
 import MarkdownEditor from '../../components/markdown/MarkdownEditor';
 import PermissionProvider from '../../components/permission-provider/PermissionProvider';
@@ -9,32 +16,34 @@ import PermissionProvider from '../../components/permission-provider/PermissionP
 const Create: NextPage = () => {
   const { data: session } = useSession();
   const [alert, setAlert] = useState(null);
-  const [page, setPage] = useState({
-    pageId: '',
+  const [content, setContent] = useState('');
+  const [doc, setDoc] = useState({
+    docId: '',
     title: '',
-    content: '',
+    category: '',
   });
 
   async function submitData(e: React.SyntheticEvent) {
     e.preventDefault();
-    fetch('/api/page/create', {
+
+    // store the new document into the database
+    fetch('/api/docs/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(page),
+      body: JSON.stringify({ doc: doc, content: content }),
     })
       .then((response) => response.json())
       .then(async (response) => {
         if (response.error) {
           setAlert(response.error);
         }
-        await Router.push('/page/drafts');
       });
   }
 
   function handleChange(event: any) {
     const value = event.target.value;
-    setPage({
-      ...page,
+    setDoc({
+      ...doc,
       [event.target.id]: value,
     });
   }
@@ -49,20 +58,42 @@ const Create: NextPage = () => {
             rowSpacing={2}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
-            <Grid item xs={6}>
-              <TextField id="pageId" onChange={handleChange} fullWidth />
+            <Grid item xs={5}>
+              <TextField id="docId" onChange={handleChange} fullWidth />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={5}>
               <TextField id="title" onChange={handleChange} fullWidth />
             </Grid>
+            <Grid item xs={2}>
+              <Select
+                id="category"
+                value={doc.category}
+                onChange={(event) => {
+                  console.log(doc.category);
+                  setDoc({
+                    ...doc,
+                    category: String(event.target.value),
+                  });
+                }}
+                fullWidth
+              >
+                <MenuItem value="MODULE">MODULE</MenuItem>
+                <MenuItem value="CHAPTER">CHAPTER</MenuItem>
+                <MenuItem value="DOC">DOC</MenuItem>
+              </Select>
+            </Grid>
             <Grid item xs={12}>
-              <MarkdownEditor id="content" />
+              <MarkdownEditor
+                id="content"
+                markdown={content}
+                setMarkdown={setContent}
+              />
             </Grid>
             <Grid item xs={1}>
               <Button
                 id="create"
                 variant="contained"
-                disabled={!page.pageId || !page.title || !page.content}
+                disabled={!doc.docId || !doc.title}
                 onClick={submitData}
               >
                 Create

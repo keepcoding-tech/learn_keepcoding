@@ -1,17 +1,17 @@
 import { TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import style from './MarkdownEditor.module.css';
 import MarkdownPreview from './MarkdownPreview';
 
 export interface IMarkdownEditor {
   id: string;
+  markdown: string;
+  setMarkdown: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const MarkdownEditor: React.FC<IMarkdownEditor> = (editor) => {
-  const [markdown, setMarkdown] = useState('');
-
   function updateMarkdown(event: { target: { value: any } }) {
-    setMarkdown(event.target.value);
+    editor.setMarkdown(event.target.value);
   }
 
   return (
@@ -21,10 +21,10 @@ const MarkdownEditor: React.FC<IMarkdownEditor> = (editor) => {
         multiline
         minRows={12}
         className={style.editor}
-        value={markdown}
+        value={editor.markdown}
         onChange={updateMarkdown}
       />
-      <MarkdownPreview>{markdown}</MarkdownPreview>
+      <MarkdownPreview>{editor.markdown}</MarkdownPreview>
     </div>
   );
 };
