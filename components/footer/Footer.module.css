@@ -1,9 +1,17 @@
 .footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-  margin: 15vh 5% 0% 5%;
+  background-color: var(--footer-background-color);
+}
+
+.divider,
+.dividerTop {
+  border-color: var(--hr-border-color);
+}
+
+.divider {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.grid {
+  padding: 24px;
 }

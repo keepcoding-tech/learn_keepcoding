@@ -27,7 +27,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
           email={session?.user?.email}
         />
         <Container className={style.container}>{children}</Container>
-        <Footer content="Powered by © 2023 keepcoding" />
+        <Footer />
       </Box>
     </>
   );

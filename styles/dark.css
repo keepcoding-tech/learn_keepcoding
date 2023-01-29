@@ -1,4 +1,6 @@
 [data-theme='dark'] {
+  --footer-background-color: #171717;
+  --hr-border-color: #9aa0a6;
   --title-font-color: #e8eaed;
   --font-color: #c4c8cc;
   --background-color: #202124;

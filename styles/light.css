@@ -1,5 +1,7 @@
 [data-theme='light'] {
+  --footer-background-color: white;
+  --hr-border-color: #dfe1e5;
   --font-color: black;
-  --background-color: white;
+  --background-color: #e8eaed;
   --link-color: #0000ee;
 }
