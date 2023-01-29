@@ -7,9 +7,11 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
   const content = req.body.content;
 
   const session = await getSession({ req });
-  const result = await prisma.document.create({
-    data: {
+  const result = await prisma.document.update({
+    where: {
       id: docId,
+    },
+    data: {
       title: title,
       content: content,
       author: {
