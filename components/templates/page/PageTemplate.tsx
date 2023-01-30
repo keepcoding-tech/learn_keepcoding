@@ -21,7 +21,12 @@ export interface IPageTemplate {
 
 const PageTemplate: React.FC<IPageTemplate> = (page) => {
   return (
-    <Paper>
+    <Paper
+      sx={{
+        bgcolor: 'var(--cards-color)',
+        color: 'var(--secondary-font-color)',
+      }}
+    >
       <Edit
         onClick={() => {
           Router.push('/docs/edit?id=' + page.id);

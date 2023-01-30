@@ -7,8 +7,29 @@ body {
 }
 
 /* Color Scheme */
-@import 'light.css';
-@import 'dark.css';
+:root {
+  --text-field-color: #bdbdbd;
+  --header-footer-color: #ffffff;
+  --background-color: #e8eaed;
+  --cards-color: #ffffff;
+  --primary-font-color: #5f6368ff;
+  --secondary-font-color: #202124b3;
+  --disabled-font-color: #20212480;
+  --hr-border-color: #e8eaed80;
+  --link-color: #0000ee;
+}
+
+[data-theme='dark'] {
+  --text-field-color: #414141;
+  --header-footer-color: #212121;
+  --background-color: #303030;
+  --cards-color: #424242;
+  --primary-font-color: #ffffffff;
+  --secondary-font-color: #ffffffb3;
+  --disabled-font-color: #ffffff80;
+  --hr-border-color: #ffffff30;
+  --link-color: #00bcd4;
+}
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
@@ -21,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
-  color: var(--font-color);
+  color: var(--secondary-font-color);
 }
 
 *,

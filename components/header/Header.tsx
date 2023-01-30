@@ -1,5 +1,5 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { alpha, Grid, InputBase, styled } from '@mui/material';
+import { Grid, InputBase, styled } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,9 +21,9 @@ export interface IHeader {
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: 'var(--text-field-color)',
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: 'var(--text-field-color)',
   },
   marginLeft: 0,
   marginRight: 20,
@@ -64,7 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header: React.FC<IHeader> = () => {
   return (
     <Box className={style.headerBox}>
-      <AppBar position="static" color="transparent">
+      <AppBar position="static" sx={{ bgcolor: 'var(--header-footer-color)' }}>
         <Toolbar>
           <Grid container spacing={2}>
             <Grid item>
@@ -74,7 +74,7 @@ const Header: React.FC<IHeader> = () => {
               <Typography
                 className={style.headerText}
                 variant="h6"
-                color="var(--title-font-color)"
+                color="var(--primary-font-color)"
               >
                 KeepCoding
               </Typography>
@@ -82,11 +82,12 @@ const Header: React.FC<IHeader> = () => {
           </Grid>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon style={{ color: 'var(--secondary-font-color)' }} />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              sx={{ color: 'var(--secondary-font-color)' }}
             />
           </Search>
           <ToggleTheme />

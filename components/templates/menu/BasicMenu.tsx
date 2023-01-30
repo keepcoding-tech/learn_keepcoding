@@ -49,7 +49,7 @@ const AccountMenu: React.FC<IAccountMenu> = () => {
         PaperProps={{
           elevation: 0,
           sx: {
-            bgcolor: 'var(--background-color)',
+            bgcolor: 'var(--cards-color)',
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
@@ -67,7 +67,7 @@ const AccountMenu: React.FC<IAccountMenu> = () => {
               right: 14,
               width: 10,
               height: 10,
-              bgcolor: 'var(--background-color)',
+              bgcolor: 'var(--cards-color)',
               transform: 'translateY(-50%) rotate(45deg)',
               zIndex: 0,
             },
@@ -80,26 +80,44 @@ const AccountMenu: React.FC<IAccountMenu> = () => {
           variant="button"
           display="block"
           gutterBottom
-          sx={{ margin: 1 }}
+          sx={{ margin: 1, color: 'var(--secondary-font-color)' }}
         >
           DEVELOPER &nbsp; PROFILE
         </Typography>
-        <Divider />
-        <MenuItem onClick={handleClose}>
+        <Divider style={{ backgroundColor: 'var(--secondary-font-color)' }} />
+        <MenuItem
+          onClick={handleClose}
+          style={{ color: 'var(--secondary-font-color)' }}
+        >
           <ListItemIcon>
-            <Dashboard fontSize="small" />
+            <Dashboard
+              fontSize="small"
+              style={{ color: 'var(--secondary-font-color)' }}
+            />
           </ListItemIcon>
           Dashboard
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem
+          onClick={handleClose}
+          style={{ color: 'var(--secondary-font-color)' }}
+        >
           <ListItemIcon>
-            <AccountCircle fontSize="small" />
+            <AccountCircle
+              fontSize="small"
+              style={{ color: 'var(--secondary-font-color)' }}
+            />
           </ListItemIcon>
           Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem
+          onClick={handleClose}
+          style={{ color: 'var(--secondary-font-color)' }}
+        >
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <Logout
+              fontSize="small"
+              style={{ color: 'var(--secondary-font-color)' }}
+            />
           </ListItemIcon>
           Logout
         </MenuItem>

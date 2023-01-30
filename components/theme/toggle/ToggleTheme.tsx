@@ -47,7 +47,10 @@ const ToggleTheme: React.FC<IToggleTheme> = () => {
 
   return (
     <div className={style.toggleThemeWrapper}>
-      <IconButton color="inherit" onClick={toggleTheme}>
+      <IconButton
+        onClick={toggleTheme}
+        sx={{ color: 'var(--secondary-font-color)' }}
+      >
         {theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
       </IconButton>
     </div>
