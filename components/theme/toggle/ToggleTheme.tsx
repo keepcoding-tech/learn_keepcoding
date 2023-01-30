@@ -1,4 +1,6 @@
-import { Button } from '@mui/material';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import style from './ToggleTheme.module.css';
 
@@ -45,9 +47,9 @@ const ToggleTheme: React.FC<IToggleTheme> = () => {
 
   return (
     <div className={style.toggleThemeWrapper}>
-      <Button color="inherit" onClick={toggleTheme}>
-        {theme === 'light' ? <span>🌒</span> : <span>☀️</span>}
-      </Button>
+      <IconButton color="inherit" onClick={toggleTheme}>
+        {theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+      </IconButton>
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import { IFooter } from './Footer';
 
-const footer: IFooter = {
-  content: 'Powered by © 2023 keepcoding',
-};
+const footer: IFooter = {};
 
 export const mocksFooterProps = { footer };

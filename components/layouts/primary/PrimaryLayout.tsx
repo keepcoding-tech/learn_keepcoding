@@ -25,6 +25,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
           logoText="Docs KeepCoding"
           sessionStatus={sessionStatus}
           email={session?.user?.email}
+          name="Keep Coding"
         />
         <Container className={style.container}>{children}</Container>
         <Footer />
