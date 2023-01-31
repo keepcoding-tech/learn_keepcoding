@@ -118,7 +118,11 @@ const AccountMenu: React.FC<IAccountMenu> = (props) => {
         >
           DEVELOPER &nbsp; PROFILE
         </Typography>
-        <Divider className="divider" />
+        <Divider
+          sx={{
+            borderColor: 'var(--primary-font-color)',
+          }}
+        />
         {props.session === 'Logout' ? (
           <MenuItem
             onClick={handleClose}
