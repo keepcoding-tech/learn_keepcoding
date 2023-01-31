@@ -11,7 +11,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import MarkdownEditor from '../../components/markdown/MarkdownEditor';
-import PermissionProvider from '../../components/permission-provider/PermissionProvider';
+import PermissionProviderPage from '../../components/permission-provider/page-provider/PermissionProviderPage';
 import prisma from '../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async (req) => {
@@ -73,7 +73,7 @@ const Edit: NextPage<Props> = (props) => {
 
   return (
     <>
-      <PermissionProvider session={session}>
+      <PermissionProviderPage session={session}>
         {alert ? <Alert severity="error">{alert}</Alert> : null}
         <Box component="form">
           <Grid
@@ -145,7 +145,7 @@ const Edit: NextPage<Props> = (props) => {
             </Grid>
           </Grid>
         </Box>
-      </PermissionProvider>
+      </PermissionProviderPage>
     </>
   );
 };

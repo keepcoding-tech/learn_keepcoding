@@ -1,6 +1,6 @@
-import { IPageTemplate } from './PageTemplate';
+import { IDocTemplate } from './DocTemplate';
 
-const storybookPage: IPageTemplate = {
+const storybookDoc: IDocTemplate = {
   id: 'storybook-page',
   title: 'Storybook Page',
   content: 'You can use markdown language here!',
@@ -15,4 +15,4 @@ const storybookPage: IPageTemplate = {
   },
 };
 
-export const mocksPageTemplateProps = { storybookPage };
+export const mocksDocTemplateProps = { storybookDoc };

@@ -1,5 +1,7 @@
 import { IFooter } from './Footer';
 
-const footer: IFooter = {};
+const footer: IFooter = {
+  /* nothing here yet */
+};
 
 export const mocksFooterProps = { footer };

@@ -1,19 +1,44 @@
 /* Page Proportions */
 *,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*,
 html,
 body {
   margin: 0;
   padding: 0;
 }
 
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--secondary-font-color);
+}
+
+footer {
+  background-color: var(--header-footer-color);
+}
+
+code {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 /* Color Scheme */
 :root {
-  --text-field-color: #bdbdbd;
+  --text-field-color: #f0f2f3;
   --header-footer-color: #ffffff;
   --background-color: #e8eaed;
   --cards-color: #ffffff;
   --primary-font-color: #5f6368ff;
-  --secondary-font-color: #202124b3;
+  --secondary-font-color: #202124ff;
   --disabled-font-color: #20212480;
   --hr-border-color: #e8eaed80;
   --link-color: #0000ee;
@@ -21,11 +46,11 @@ body {
 
 [data-theme='dark'] {
   --text-field-color: #414141;
-  --header-footer-color: #212121;
-  --background-color: #303030;
-  --cards-color: #424242;
-  --primary-font-color: #ffffffff;
-  --secondary-font-color: #ffffffb3;
+  --header-footer-color: #171717;
+  --background-color: #202124ff;
+  --cards-color: #303134ff;
+  --primary-font-color: #9aa0a6ff;
+  --secondary-font-color: #e8eaedff;
   --disabled-font-color: #ffffff80;
   --hr-border-color: #ffffff30;
   --link-color: #00bcd4;
@@ -34,21 +59,18 @@ body {
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
-/* General Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
-  color: var(--secondary-font-color);
+/* Links */
+a {
+  color: var(--link-color);
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+.link {
+  color: var(--secondary-font-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--link-color);
 }
 
 /* Typography */
@@ -99,4 +121,14 @@ h6 {
   font-size: 0.813em;
   line-height: 1.77;
   font-weight: 700;
+}
+
+/* Components */
+.expander {
+  flex-grow: 1;
+}
+
+/* Mui Material */
+.grid {
+  padding: 24px;
 }

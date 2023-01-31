@@ -1,17 +1,21 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Header, { IHeader } from '../../components/header/Header';
-import { mocksHeaderProps } from '../../components/header/Header.mocks';
+import NavigationBar, {
+  INavigationBar,
+} from '../../components/headers/navbar/NavigationBar';
+import { mocksHeaderProps } from '../../components/headers/navbar/NavigationBar.mocks';
 
 export default {
   title: 'header/Header',
-  component: Header,
+  component: NavigationBar,
   argTypes: {},
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof NavigationBar>;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof NavigationBar> = (args) => (
+  <NavigationBar {...args} />
+);
 
-export const BaseHeader = Template.bind({});
+export const SBHeader = Template.bind({});
 
-BaseHeader.args = {
-  ...mocksHeaderProps.header,
-} as IHeader;
+SBHeader.args = {
+  ...mocksHeaderProps.navbar,
+} as INavigationBar;

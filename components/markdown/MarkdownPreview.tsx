@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import {
-  oneDark,
-  oneLight,
-} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import oneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/one-dark';
+import oneLight from 'react-syntax-highlighter/dist/cjs/styles/prism/one-light';
 import remarkGfm from 'remark-gfm';
-import style from './MarkdownPreview.module.css';
 
 export interface IMarkdownPreview {
   children: any;
 }
 
-const MarkdownPreview: React.FC<IMarkdownPreview> = (markdown) => {
+const MarkdownPreview: React.FC<IMarkdownPreview> = (props) => {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
@@ -21,8 +18,19 @@ const MarkdownPreview: React.FC<IMarkdownPreview> = (markdown) => {
   }, []);
 
   return (
-    <div className={style.preview}>
-      <div className={style.preview__scroll}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+      }}
+    >
+      <div
+        style={{
+          padding: '24px',
+          flexGrow: 1,
+        }}
+      >
         <ReactMarkdown
           remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
           components={{
@@ -43,12 +51,18 @@ const MarkdownPreview: React.FC<IMarkdownPreview> = (markdown) => {
                   {...props}
                 />
               ) : (
-                <code className={className} {...props} />
+                <code
+                  {...props}
+                  style={{
+                    marginTop: '24px',
+                    marginBottom: '24px',
+                  }}
+                />
               );
             },
           }}
         >
-          {markdown.children}
+          {props.children}
         </ReactMarkdown>
       </div>
     </div>

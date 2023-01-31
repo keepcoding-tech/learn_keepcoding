@@ -1,33 +1,37 @@
-import { Box, Container } from '@mui/system';
+import Container from '@mui/material/Container';
+import Box from '@mui/system/Box';
 import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import React from 'react';
 import Footer from '../../footer/Footer';
-import Header from '../../header/Header';
-import style from './PrimaryLayout.module.css';
+import NavigationBar from '../../headers/navbar/NavigationBar';
 
 export interface IPrimaryLayout {
   children: any;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
   const { data: session, status } = useSession();
   const sessionStatus = status === 'unauthenticated' ? 'Login' : 'Logout';
 
   return (
     <>
       <Head>
-        <title>Docs KeepCoding</title>
+        <title>keepcoding</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box className={style.box}>
-        <Header
-          logoText="Docs KeepCoding"
-          sessionStatus={sessionStatus}
-          email={session?.user?.email}
-          name="Keep Coding"
-        />
-        <Container className={style.container}>{children}</Container>
+      <Box sx={{ flexGrow: 1 }}>
+        <NavigationBar sessionStatus={sessionStatus} />
+        <Container
+          sx={{
+            paddingTop: '24px',
+            paddingBottom: '45px',
+            minHeight: '50vh',
+          }}
+        >
+          {children}
+        </Container>
         <Footer />
       </Box>
     </>

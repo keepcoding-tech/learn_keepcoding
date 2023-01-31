@@ -2,19 +2,17 @@ import { Edit } from '@mui/icons-material';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Paper,
-  Typography,
-} from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import Router from 'next/router';
 import React from 'react';
 import MarkdownPreview from '../../markdown/MarkdownPreview';
 
-export interface IPageTemplate {
+export interface IDocTemplate {
   id: string;
   title: string;
   content: string;
@@ -29,41 +27,49 @@ export interface IPageTemplate {
   };
 }
 
-const PageTemplate: React.FC<IPageTemplate> = (page) => {
+const DocTemplate: React.FC<IDocTemplate> = (page) => {
   return (
     <Paper
       sx={{
-        bgcolor: 'var(--cards-color)',
+        backgroundColor: 'var(--cards-color)',
         color: 'var(--secondary-font-color)',
-        padding: 1,
+        padding: '1px',
       }}
     >
-      <Edit
-        onClick={() => {
-          Router.push('/docs/edit?id=' + page.id);
-        }}
-      />
+      <Edit onClick={() => Router.push('/docs/edit?id=' + page.id)} />
       <Grid container rowSpacing={2}>
         <Grid item xs={6}>
-          <Typography sx={{ marginLeft: 5 }}>
+          <Typography
+            sx={{
+              marginLeft: '24px',
+            }}
+          >
             Module &gt; Chapter &gt; Doc
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <Box sx={{ float: 'right', marginRight: 5 }}>
+          <Box
+            sx={{
+              float: 'right',
+            }}
+          >
             Was this helpful?
             <>&nbsp;&nbsp;</>
             <IconButton>
               <ThumbUpIcon
                 fontSize="small"
-                style={{ color: 'var(--secondary-font-color)' }}
+                sx={{
+                  color: 'var(--primary-font-color)',
+                }}
               />
             </IconButton>
             <>&nbsp;&nbsp;</>
             <IconButton>
               <ThumbDownIcon
                 fontSize="small"
-                style={{ color: 'var(--secondary-font-color)' }}
+                sx={{
+                  color: 'var(--primary-font-color)',
+                }}
               />
             </IconButton>
           </Box>
@@ -72,18 +78,24 @@ const PageTemplate: React.FC<IPageTemplate> = (page) => {
           <h2>{page.title}</h2>
         </Grid>
         <Grid item xs={3}>
-          <Box sx={{ float: 'right' }}>
+          <Box
+            sx={{
+              float: 'right',
+            }}
+          >
             <IconButton>
               <BookmarkAddIcon
-                style={{ color: 'var(--secondary-font-color)' }}
+                sx={{
+                  color: 'var(--primary-font-color)',
+                }}
               />
             </IconButton>
             <>&nbsp;&nbsp;</>
             <Button
               variant="outlined"
               sx={{
-                color: 'var(--secondary-font-color)',
-                borderColor: 'var(--secondary-font-color)',
+                color: 'var(--primary-font-color)',
+                borderColor: 'var(--primary-font-color)',
               }}
             >
               Send feedback
@@ -101,4 +113,4 @@ const PageTemplate: React.FC<IPageTemplate> = (page) => {
   );
 };
 
-export default PageTemplate;
+export default DocTemplate;

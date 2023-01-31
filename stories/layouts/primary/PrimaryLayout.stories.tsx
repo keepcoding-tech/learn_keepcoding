@@ -5,7 +5,7 @@ import PrimaryLayout, {
 import { mocksPrimaryLayoutProps } from '../../../components/layouts/primary/PrimaryLayout.mocks';
 
 export default {
-  title: 'layouts/PrimaryLayout',
+  title: 'layouts/primary/PrimaryLayout',
   component: PrimaryLayout,
   argTypes: {},
 } as ComponentMeta<typeof PrimaryLayout>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof PrimaryLayout> = (args) => (
   <PrimaryLayout {...args} />
 );
 
-export const Primary = Template.bind({});
+export const SBPrimaryLayout = Template.bind({});
 
-Primary.args = {
+SBPrimaryLayout.args = {
   ...mocksPrimaryLayoutProps.primary,
 } as IPrimaryLayout;

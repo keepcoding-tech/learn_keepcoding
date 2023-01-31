@@ -10,8 +10,8 @@ export default {
 
 const Template: ComponentStory<typeof Footer> = (args) => <Footer {...args} />;
 
-export const FooterEx = Template.bind({});
+export const SBFooter = Template.bind({});
 
-FooterEx.args = {
+SBFooter.args = {
   ...mocksFooterProps.footer,
 } as IFooter;

@@ -1,8 +1,7 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { IconButton } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 import React, { useEffect, useState } from 'react';
-import style from './ToggleTheme.module.css';
 
 export interface IToggleTheme {}
 
@@ -46,14 +45,14 @@ const ToggleTheme: React.FC<IToggleTheme> = () => {
   }, []);
 
   return (
-    <div className={style.toggleThemeWrapper}>
-      <IconButton
-        onClick={toggleTheme}
-        sx={{ color: 'var(--secondary-font-color)' }}
-      >
-        {theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
-      </IconButton>
-    </div>
+    <IconButton
+      onClick={toggleTheme}
+      sx={{
+        color: 'var(--primary-font-color)',
+      }}
+    >
+      {theme === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+    </IconButton>
   );
 };
 

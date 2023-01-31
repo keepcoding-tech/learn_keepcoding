@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
-import PageTemplate from '../../components/templates/page/PageTemplate';
+import DocTemplate from '../../components/templates/docs/DocTemplate';
 import prisma from '../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -27,7 +27,7 @@ type Props = { doc: any };
 const Page: NextPage<Props> = (props) => {
   return (
     <>
-      <PageTemplate
+      <DocTemplate
         id={props.doc.id}
         title={props.doc.title}
         content={props.doc.content}

@@ -1,33 +1,44 @@
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Link from 'next/link';
 import React from 'react';
-import style from './Footer.module.css';
 
-export interface IFooter {}
+export interface IFooter {
+  /* nothing here yet */
+}
 
 const Footer: React.FC<IFooter> = () => {
   return (
     <>
-      <footer className={style.footer}>
-        <hr className={style.dividerTop} />
-        <Grid container className={style.grid}>
+      <footer>
+        <Grid container className="grid">
           <Grid item xs={4}>
             <h5>Learn</h5>
             <br />
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                Guides
+                <Link className="link" href="/">
+                  Guides
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Reference
+                <Link className="link" href="/">
+                  Reference
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Samples
+                <Link className="link" href="/">
+                  Samples
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Libraries
+                <Link className="link" href="/">
+                  Libraries
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                GitHub
+                <Link className="link" href="/">
+                  GitHub
+                </Link>
               </Grid>
             </Grid>
           </Grid>
@@ -36,16 +47,24 @@ const Footer: React.FC<IFooter> = () => {
             <br />
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                Blog
+                <Link className="link" href="/">
+                  Blog
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                KeepCoding Summit
+                <Link className="link" href="/">
+                  KeepCoding Summit
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Twitter
+                <Link className="link" href="/">
+                  Twitter
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                YouTube
+                <Link className="link" href="/">
+                  YouTube
+                </Link>
               </Grid>
             </Grid>
           </Grid>
@@ -54,41 +73,89 @@ const Footer: React.FC<IFooter> = () => {
             <br />
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                Contact support
+                <Link className="link" href="/">
+                  Contact support
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Stack Overflow
+                <Link className="link" href="/">
+                  Stack Overflow
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Slack community
+                <Link className="link" href="/">
+                  Slack community
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Google group
+                <Link className="link" href="/">
+                  Google group
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                Release notes
+                <Link className="link" href="/">
+                  Release notes
+                </Link>
               </Grid>
               <Grid item xs={12}>
-                FAQs
+                <Link className="link" href="/">
+                  FAQs
+                </Link>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <hr className={style.divider} />
-        <Grid container className={style.grid} spacing={5}>
+        <hr
+          style={{
+            borderColor: 'var(--hr-border-color)',
+            marginLeft: '24px',
+            marginRight: '24px',
+          }}
+        />
+        <Grid container className="grid" spacing={5}>
           <Grid item>
             <h5>KeepCoding Developers</h5>
           </Grid>
-          <Grid item>Nextjs</Grid>
-          <Grid item>Prisma</Grid>
-          <Grid item>Google Cloud Platform</Grid>
-          <Grid item>All products</Grid>
+          <Grid item>
+            <Link className="link" href="/">
+              Nextjs
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link className="link" href="/">
+              Prisma
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link className="link" href="/">
+              Google Cloud Platform
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link className="link" href="/">
+              All products
+            </Link>
+          </Grid>
         </Grid>
-        <hr className={style.divider} />
-        <Grid container className={style.grid}>
-          <Grid item>Terms</Grid>
+        <hr
+          style={{
+            borderColor: 'var(--hr-border-color)',
+            marginLeft: '24px',
+            marginRight: '24px',
+          }}
+        />
+        <Grid container className="grid">
+          <Grid item>
+            <Link className="link" href="/">
+              Terms
+            </Link>
+          </Grid>
           <Grid item>&nbsp;|&nbsp;</Grid>
-          <Grid item>Privacy</Grid>
+          <Grid item>
+            <Link className="link" href="/">
+              Privacy
+            </Link>
+          </Grid>
         </Grid>
       </footer>
     </>

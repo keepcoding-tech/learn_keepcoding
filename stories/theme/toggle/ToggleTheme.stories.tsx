@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof ToggleTheme> = (args) => (
   <ToggleTheme {...args} />
 );
 
-export const ToggleDarkTheme = Template.bind({});
+export const SBToggleTheme = Template.bind({});
 
-ToggleDarkTheme.args = {
+SBToggleTheme.args = {
   ...mocksToggleThemeProps.toggleDark,
 } as IToggleTheme;

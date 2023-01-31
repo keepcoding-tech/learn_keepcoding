@@ -11,7 +11,7 @@ import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import MarkdownEditor from '../../components/markdown/MarkdownEditor';
-import PermissionProvider from '../../components/permission-provider/PermissionProvider';
+import PermissionProviderPage from '../../components/permission-provider/page-provider/PermissionProviderPage';
 
 const Create: NextPage = () => {
   const { data: session } = useSession();
@@ -50,7 +50,7 @@ const Create: NextPage = () => {
 
   return (
     <>
-      <PermissionProvider session={session}>
+      <PermissionProviderPage session={session}>
         {alert ? <Alert severity="error">{alert}</Alert> : null}
         <Box component="form">
           <Grid
@@ -112,7 +112,7 @@ const Create: NextPage = () => {
             </Grid>
           </Grid>
         </Box>
-      </PermissionProvider>
+      </PermissionProviderPage>
     </>
   );
 };
