@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
-import DocTemplate from '../../components/templates/docs/DocTemplate';
-import prisma from '../../lib/prisma';
+import DocTemplate from '../../../components/templates/docs/DocTemplate';
+import prisma from '../../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const result = await prisma.document.findUnique({

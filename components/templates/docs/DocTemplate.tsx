@@ -33,26 +33,34 @@ const DocTemplate: React.FC<IDocTemplate> = (page) => {
       sx={{
         backgroundColor: 'var(--cards-color)',
         color: 'var(--secondary-font-color)',
-        padding: '1px',
+        padding: '24px',
       }}
     >
-      <Edit onClick={() => Router.push('/docs/edit?id=' + page.id)} />
+      <IconButton
+        onClick={() => Router.push('/docs/edit?id=' + page.id)}
+        sx={{
+          marginBottom: '24px',
+        }}
+      >
+        <Edit
+          sx={{
+            color: 'var(--primary-font-color)',
+          }}
+        />
+      </IconButton>
+      <hr className="divider" />
+      <br />
       <Grid container rowSpacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sx={{ display: 'flex' }}>
           <Typography
             sx={{
               marginLeft: '24px',
             }}
           >
-            Module &gt; Chapter &gt; Doc
+            <b>Module &gt; Chapter &gt; {page.id}</b>
           </Typography>
-        </Grid>
-        <Grid item xs={6}>
-          <Box
-            sx={{
-              float: 'right',
-            }}
-          >
+          <div className="expander" />
+          <Box>
             Was this helpful?
             <>&nbsp;&nbsp;</>
             <IconButton>
@@ -74,15 +82,9 @@ const DocTemplate: React.FC<IDocTemplate> = (page) => {
             </IconButton>
           </Box>
         </Grid>
-        <Grid item xs={8} sx={{ marginLeft: 5 }}>
-          <h2>{page.title}</h2>
-        </Grid>
-        <Grid item xs={3}>
-          <Box
-            sx={{
-              float: 'right',
-            }}
-          >
+        <Grid item xs={12} sx={{ display: 'flex' }}>
+          <div className="expander" />
+          <Box>
             <IconButton>
               <BookmarkAddIcon
                 sx={{
@@ -101,6 +103,9 @@ const DocTemplate: React.FC<IDocTemplate> = (page) => {
               Send feedback
             </Button>
           </Box>
+        </Grid>
+        <Grid item xs={12} sx={{ marginLeft: 5 }}>
+          <h2>{page.title}</h2>
         </Grid>
         <Grid item xs={12}>
           <MarkdownPreview>{page.content}</MarkdownPreview>

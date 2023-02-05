@@ -26,9 +26,8 @@ footer {
   background-color: var(--header-footer-color);
 }
 
-code {
-  margin-top: 24px;
-  margin-bottom: 24px;
+li {
+  margin-left: 48px;
 }
 
 /* Color Scheme */
@@ -42,6 +41,7 @@ code {
   --disabled-font-color: #20212480;
   --hr-border-color: #e8eaed80;
   --link-color: #0000ee;
+  --code-background-color: #fafafa;
 }
 
 [data-theme='dark'] {
@@ -54,6 +54,7 @@ code {
   --disabled-font-color: #ffffff80;
   --hr-border-color: #ffffff30;
   --link-color: #00bcd4;
+  --code-background-color: #282c34;
 }
 
 /* Fonts */
@@ -74,6 +75,14 @@ a {
 }
 
 /* Typography */
+blockquote {
+  background-color: var(--text-field-color);
+  margin-left: -48px;
+  margin-right: -48px;
+  margin-bottom: 24px;
+  padding: 10px 0px 5px 55px;
+}
+
 p {
   margin: 0 0 1.3rem;
 }
@@ -126,6 +135,7 @@ h6 {
 /* Components */
 .expander {
   flex-grow: 1;
+  display: inline;
 }
 
 /* Mui Material */

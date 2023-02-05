@@ -48,16 +48,24 @@ const MarkdownPreview: React.FC<IMarkdownPreview> = (props) => {
                   showLineNumbers={true}
                   wrapLines={hasMeta ? true : false}
                   useInlineStyles={true}
+                  sx={{ marginLeft: '-48px' }}
                   {...props}
                 />
               ) : (
-                <code
-                  {...props}
-                  style={{
-                    marginTop: '24px',
-                    marginBottom: '24px',
-                  }}
-                />
+                <>
+                  <code
+                    {...props}
+                    style={{
+                      backgroundColor: 'var(--code-background-color)',
+                      fontFamily:
+                        'Fira Code, Fira Mono, Menlo, Consolas, DejaVu Sans Mono, monospace',
+                      color: 'var(--primary-font-color)',
+                      padding: '6px',
+                      borderRadius: '0.3em',
+                      lineHeight: '40px',
+                    }}
+                  />
+                </>
               );
             },
           }}
