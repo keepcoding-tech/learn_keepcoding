@@ -138,6 +138,12 @@ h6 {
   display: inline;
 }
 
+.divider {
+  border-color: var(--hr-border-color);
+  margin-left: '24px';
+  margin-right: '24px';
+}
+
 /* Mui Material */
 .grid {
   padding: 24px;

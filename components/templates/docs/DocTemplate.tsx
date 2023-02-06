@@ -9,8 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Router from 'next/router';
-import React from 'react';
+import React, { useContext } from 'react';
 import MarkdownPreview from '../../markdown/MarkdownPreview';
+import SidebarState from '../../sidebar/SidebarState';
 
 export interface IDocTemplate {
   id: string;
@@ -28,12 +29,19 @@ export interface IDocTemplate {
 }
 
 const DocTemplate: React.FC<IDocTemplate> = (page) => {
+  const { open } = useContext(SidebarState);
+
   return (
     <Paper
       sx={{
         backgroundColor: 'var(--cards-color)',
         color: 'var(--secondary-font-color)',
         padding: '24px',
+        ...(open && {
+          '@media (max-width: 1700px)': {
+            marginLeft: '260px',
+          },
+        }),
       }}
     >
       <IconButton

@@ -1,15 +1,24 @@
 import Grid from '@mui/material/Grid';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import SidebarState from '../sidebar/SidebarState';
 
 export interface IFooter {
   /* nothing here yet */
 }
 
 const Footer: React.FC<IFooter> = () => {
+  const { open } = useContext(SidebarState);
+
   return (
     <>
-      <footer>
+      <footer
+        style={{
+          ...(open && {
+            marginLeft: '260px',
+          }),
+        }}
+      >
         <Grid container className="grid">
           <Grid item xs={4}>
             <h5>Learn</h5>

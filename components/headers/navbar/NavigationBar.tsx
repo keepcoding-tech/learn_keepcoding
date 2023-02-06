@@ -17,9 +17,10 @@ const NavigationBar: React.FC<INavigationBar> = (props) => {
   return (
     <Box>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{
           bgcolor: 'var(--header-footer-color)',
+          zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
         <Toolbar>
