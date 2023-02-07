@@ -77,10 +77,15 @@ a {
 /* Typography */
 blockquote {
   background-color: var(--text-field-color);
-  margin-left: -48px;
-  margin-right: -48px;
   margin-bottom: 24px;
   padding: 10px 0px 5px 55px;
+  margin-left: -48px;
+  margin-right: -48px;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
 }
 
 p {
@@ -138,10 +143,14 @@ h6 {
   display: inline;
 }
 
-.divider {
+.long-divider {
   border-color: var(--hr-border-color);
-  margin-left: '24px';
-  margin-right: '24px';
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.short-divider {
+  border-color: var(--hr-border-color);
 }
 
 /* Mui Material */

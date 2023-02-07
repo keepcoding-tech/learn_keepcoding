@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DocTemplate, {
   IDocTemplate,
-} from '../../../components/templates/docs/DocTemplate';
-import { mocksDocTemplateProps } from '../../../components/templates/docs/DocTemplate.mocks';
+} from '../../../components/templates/doc/DocTemplate';
+import { mocksDocTemplateProps } from '../../../components/templates/doc/DocTemplate.mocks';
 
 export default {
   title: 'templates/docs/DocTemplate',

@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import SidebarState from '../sidebar/SidebarState';
@@ -10,15 +11,17 @@ export interface IFooter {
 const Footer: React.FC<IFooter> = () => {
   const { open } = useContext(SidebarState);
 
+  const FooterBox = styled('footer')(() => ({
+    ...(open && {
+      '@media (min-width: 900px)': {
+        marginLeft: '280px',
+      },
+    }),
+  }));
+
   return (
     <>
-      <footer
-        style={{
-          ...(open && {
-            marginLeft: '260px',
-          }),
-        }}
-      >
+      <FooterBox>
         <Grid container className="grid">
           <Grid item xs={4}>
             <h5>Learn</h5>
@@ -114,13 +117,7 @@ const Footer: React.FC<IFooter> = () => {
             </Grid>
           </Grid>
         </Grid>
-        <hr
-          style={{
-            borderColor: 'var(--hr-border-color)',
-            marginLeft: '24px',
-            marginRight: '24px',
-          }}
-        />
+        <hr className="long-divider" />
         <Grid container className="grid" spacing={5}>
           <Grid item>
             <h5>KeepCoding Developers</h5>
@@ -146,13 +143,7 @@ const Footer: React.FC<IFooter> = () => {
             </Link>
           </Grid>
         </Grid>
-        <hr
-          style={{
-            borderColor: 'var(--hr-border-color)',
-            marginLeft: '24px',
-            marginRight: '24px',
-          }}
-        />
+        <hr className="long-divider" />
         <Grid container className="grid">
           <Grid item>
             <Link className="link" href="/">
@@ -166,7 +157,7 @@ const Footer: React.FC<IFooter> = () => {
             </Link>
           </Grid>
         </Grid>
-      </footer>
+      </FooterBox>
     </>
   );
 };

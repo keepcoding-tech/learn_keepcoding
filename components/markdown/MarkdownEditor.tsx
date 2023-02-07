@@ -1,5 +1,7 @@
+import { Box } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import React from 'react';
+import { styles } from './MarkdownEditorStyles';
 import MarkdownPreview from './MarkdownPreview';
 
 export interface IMarkdownEditor {
@@ -14,33 +16,17 @@ const MarkdownEditor: React.FC<IMarkdownEditor> = (props) => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-      }}
-    >
+    <Box sx={styles.markdownWrapper}>
       <TextField
         id={props.id}
         multiline
         minRows={12}
         value={props.markdown}
         onChange={updateMarkdown}
-        style={{
-          width: '100%',
-          flexGrow: 1,
-          color: 'var(--secondary-font-color)',
-          marginBottom: '20px',
-          border: 'none',
-          outline: 'none',
-          appearance: 'none',
-          background: 'none',
-          resize: 'none',
-        }}
+        sx={styles.textArea}
       />
       <MarkdownPreview>{props.markdown}</MarkdownPreview>
-    </div>
+    </Box>
   );
 };
 

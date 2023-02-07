@@ -8,6 +8,7 @@ import ToggleTheme from '../../theme/toggle/ToggleTheme';
 import logo from './../../../public/vercel.svg';
 import HeaderSearch from './header-search/HeaderSearch';
 import BasicMenu from './menu/AccountMenu';
+import { styles } from './NavigationBarStyles';
 
 export interface INavigationBar {
   sessionStatus: string;
@@ -16,22 +17,13 @@ export interface INavigationBar {
 const NavigationBar: React.FC<INavigationBar> = (props) => {
   return (
     <Box>
-      <AppBar
-        position="fixed"
-        sx={{
-          bgcolor: 'var(--header-footer-color)',
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-        }}
-      >
+      <AppBar position="fixed" sx={styles.appBar}>
         <Toolbar>
           <Image
             onClick={() => Router.push('/')}
             src={logo}
             alt="Logo"
-            style={{
-              width: '150px',
-              height: '50px',
-            }}
+            style={styles.image}
           />
           <div className="expander"></div>
           <HeaderSearch />

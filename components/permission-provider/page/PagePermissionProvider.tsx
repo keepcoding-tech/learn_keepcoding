@@ -2,12 +2,12 @@ import Typography from '@mui/material/Typography';
 import { Session } from 'next-auth';
 import React from 'react';
 
-export interface IPermissionProviderPage {
+export interface IPagePermissionProvider {
   children: any;
   session: Session | null;
 }
 
-const PermissionProviderPage: React.FC<IPermissionProviderPage> = (props) => {
+const PagePermissionProvider: React.FC<IPagePermissionProvider> = (props) => {
   const user: any = props.session?.user;
 
   // render content if the user has admin role
@@ -24,4 +24,4 @@ const PermissionProviderPage: React.FC<IPermissionProviderPage> = (props) => {
   );
 };
 
-export default PermissionProviderPage;
+export default PagePermissionProvider;

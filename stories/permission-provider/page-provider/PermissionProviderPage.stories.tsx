@@ -1,21 +1,21 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import PermissionProviderPage, {
-  IPermissionProviderPage,
-} from '../../../components/permission-provider/page-provider/PermissionProviderPage';
-import { mocksPermissionProviderPageProps } from '../../../components/permission-provider/page-provider/PermissionProviderPage.mocks';
+import PagePermissionProvider, {
+  IPagePermissionProvider,
+} from '../../../components/permission-provider/page/PagePermissionProvider';
+import { mocksPagePermissionProviderProps } from '../../../components/permission-provider/page/PagePermissionProvider.mocks';
 
 export default {
   title: 'permission-provider/page-provider/PermissionProviderPage',
-  component: PermissionProviderPage,
+  component: PagePermissionProvider,
   argTypes: {},
-} as ComponentMeta<typeof PermissionProviderPage>;
+} as ComponentMeta<typeof PagePermissionProvider>;
 
-const Template: ComponentStory<typeof PermissionProviderPage> = (args) => (
-  <PermissionProviderPage {...args} />
+const Template: ComponentStory<typeof PagePermissionProvider> = (args) => (
+  <PagePermissionProvider {...args} />
 );
 
-export const SBPermissionProviderPage = Template.bind({});
+export const SBPagePermissionProvider = Template.bind({});
 
-SBPermissionProviderPage.args = {
-  ...mocksPermissionProviderPageProps.pageProvider,
-} as IPermissionProviderPage;
+SBPagePermissionProvider.args = {
+  ...mocksPagePermissionProviderProps.pageProvider,
+} as IPagePermissionProvider;

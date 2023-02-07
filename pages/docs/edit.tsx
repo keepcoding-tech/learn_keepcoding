@@ -10,8 +10,9 @@ import {
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import PageLayout from '../../components/layouts/page/PageLayout';
 import MarkdownEditor from '../../components/markdown/MarkdownEditor';
-import PermissionProviderPage from '../../components/permission-provider/page-provider/PermissionProviderPage';
+import PagePermissionProvider from '../../components/permission-provider/page/PagePermissionProvider';
 import prisma from '../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async (req) => {
@@ -73,79 +74,81 @@ const Edit: NextPage<Props> = (props) => {
 
   return (
     <>
-      <PermissionProviderPage session={session}>
-        {alert ? <Alert severity="error">{alert}</Alert> : null}
-        <Box component="form">
-          <Grid
-            container
-            rowSpacing={2}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          >
-            <Grid item xs={5}>
-              <TextField
-                id="docId"
-                value={doc.docId}
-                onChange={handleChange}
-                fullWidth
-              />
+      <PagePermissionProvider session={session}>
+        <PageLayout>
+          {alert ? <Alert severity="error">{alert}</Alert> : null}
+          <Box component="form">
+            <Grid
+              container
+              rowSpacing={2}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            >
+              <Grid item xs={5}>
+                <TextField
+                  id="docId"
+                  value={doc.docId}
+                  onChange={handleChange}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  id="title"
+                  value={doc.title}
+                  onChange={handleChange}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <Select
+                  id="category"
+                  value={doc.category}
+                  onChange={(event) => {
+                    console.log(doc.category);
+                    setDoc({
+                      ...doc,
+                      category: String(event.target.value),
+                    });
+                  }}
+                  fullWidth
+                >
+                  <MenuItem value="MODULE">MODULE</MenuItem>
+                  <MenuItem value="CHAPTER">CHAPTER</MenuItem>
+                  <MenuItem value="DOC">DOC</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item xs={12}>
+                <MarkdownEditor
+                  id="content"
+                  markdown={content}
+                  setMarkdown={setContent}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Button
+                  id="create"
+                  variant="contained"
+                  disabled={!doc.docId || !doc.title}
+                  onClick={submitData}
+                >
+                  Save
+                </Button>
+              </Grid>
+              <Grid item xs={1}>
+                <Button
+                  id="cancel"
+                  variant="contained"
+                  onClick={() => {
+                    setAlert(null);
+                  }}
+                >
+                  Cancel
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={5}>
-              <TextField
-                id="title"
-                value={doc.title}
-                onChange={handleChange}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <Select
-                id="category"
-                value={doc.category}
-                onChange={(event) => {
-                  console.log(doc.category);
-                  setDoc({
-                    ...doc,
-                    category: String(event.target.value),
-                  });
-                }}
-                fullWidth
-              >
-                <MenuItem value="MODULE">MODULE</MenuItem>
-                <MenuItem value="CHAPTER">CHAPTER</MenuItem>
-                <MenuItem value="DOC">DOC</MenuItem>
-              </Select>
-            </Grid>
-            <Grid item xs={12}>
-              <MarkdownEditor
-                id="content"
-                markdown={content}
-                setMarkdown={setContent}
-              />
-            </Grid>
-            <Grid item xs={1}>
-              <Button
-                id="create"
-                variant="contained"
-                disabled={!doc.docId || !doc.title}
-                onClick={submitData}
-              >
-                Save
-              </Button>
-            </Grid>
-            <Grid item xs={1}>
-              <Button
-                id="cancel"
-                variant="contained"
-                onClick={() => {
-                  setAlert(null);
-                }}
-              >
-                Cancel
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-      </PermissionProviderPage>
+          </Box>
+        </PageLayout>
+      </PagePermissionProvider>
     </>
   );
 };
