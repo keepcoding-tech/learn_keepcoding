@@ -15,9 +15,21 @@ import SidebarState from './SidebarState';
 import { styles } from './SidebarStyles';
 
 export interface ISidebar {
-  module: string;
-  chapters: string[];
-  docsIds: string[][];
+  module: {
+    id: string;
+    title: string;
+  };
+  chapters: {
+    id: string;
+    title: string;
+    docChapter: {
+      document: {
+        id: string;
+        title: string;
+      };
+    }[];
+  }[];
+  currentChapter: string;
 }
 
 const Sidebar: React.FC<ISidebar> = (param) => {
@@ -43,24 +55,33 @@ const Sidebar: React.FC<ISidebar> = (param) => {
           <InputBase placeholder="Filter" sx={styles.inputBase} />
         </Paper>
         <hr className="short-divider" />
-        <span style={styles.moduleText}>{param.module}</span>
+        <span style={styles.moduleText}>{param.module.title}</span>
         <hr className="short-divider" />
         <div>
-          {param.chapters.map((chapter, chapterIndex) => (
+          {param.chapters.map((chapter) => (
             <>
-              <Accordion key={chapterIndex} sx={styles.accordion}>
+              <Accordion
+                defaultExpanded={chapter.id === param.currentChapter}
+                key={chapter.id}
+                sx={styles.accordion}
+              >
                 <AccordionSummary
                   sx={styles.accordionSummary}
                   expandIcon={<ExpandMoreIcon sx={styles.icon} />}
                 >
                   <span style={styles.chapterText}>
-                    <b>{chapter}</b>
+                    <b>{chapter.title}</b>
                   </span>
                 </AccordionSummary>
                 <AccordionDetails>
-                  {param.docsIds[chapterIndex].map((doc, docIndex) => (
-                    <div key={docIndex} style={styles.doc}>
-                      {doc}
+                  {chapter.docChapter.map((doc) => (
+                    <div key={doc.document.id} style={styles.doc}>
+                      <a
+                        className="link"
+                        href={`/docs/${param.module.id}/${chapter.id}/${doc.document.id}`}
+                      >
+                        {doc.document.title}
+                      </a>
                     </div>
                   ))}
                 </AccordionDetails>

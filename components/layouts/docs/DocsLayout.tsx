@@ -12,9 +12,21 @@ export interface IDocsLayout {
   children: any;
   status: string;
   sidebar: {
-    module: string;
-    chapters: string[];
-    docsIds: string[][];
+    module: {
+      id: string;
+      title: string;
+    };
+    chapters: {
+      id: string;
+      title: string;
+      docChapter: {
+        document: {
+          id: string;
+          title: string;
+        };
+      }[];
+    }[];
+    currentChapter: string;
   };
 }
 
@@ -33,7 +45,7 @@ const DocsLayout: React.FC<IDocsLayout> = (param) => {
           <Sidebar
             module={param.sidebar.module}
             chapters={param.sidebar.chapters}
-            docsIds={param.sidebar.docsIds}
+            currentChapter={param.sidebar.currentChapter}
           />
           <Container sx={styles.container}>{param.children}</Container>
           <PrimaryFooter />

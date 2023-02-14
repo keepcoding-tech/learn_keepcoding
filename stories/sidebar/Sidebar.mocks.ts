@@ -1,19 +1,37 @@
 import { ISidebar } from '../../components/sidebar/Sidebar';
 
 const sidebar: ISidebar = {
-  module: 'Fundamentals',
+  module: {
+    id: 'fundamentals',
+    title: 'Fundamentals',
+  },
   chapters: [
-    'Get started with KCDP',
-    'Manage your KCDP projects',
-    'Platforms and frameworks',
-    'Prototype and test with Emulator Suite',
+    {
+      id: 'get-started',
+      title: 'Get started with KCDP',
+      docChapter: [
+        {
+          document: {
+            id: 'test-0',
+            title: 'test 0',
+          },
+        },
+        {
+          document: {
+            id: 'test-1',
+            title: 'test 1',
+          },
+        },
+        {
+          document: {
+            id: 'test-2',
+            title: 'test 2',
+          },
+        },
+      ],
+    },
   ],
-  docsIds: [
-    ['test-0', 'test-1', 'test-2', 'test-3', 'test-4', 'test-5'],
-    ['test-0', 'test-1', 'test-2', 'test-3', 'test-4', 'test-5'],
-    ['test-0', 'test-1', 'test-2', 'test-3', 'test-4', 'test-5'],
-    ['test-0', 'test-1', 'test-2', 'test-3', 'test-4', 'test-5'],
-  ],
+  currentChapter: 'get-started',
 };
 
 export const mocksSidebarProps = { sidebar };

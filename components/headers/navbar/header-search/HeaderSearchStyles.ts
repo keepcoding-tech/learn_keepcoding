@@ -7,10 +7,21 @@ const search = {
   marginLeft: 0,
   marginRight: '24px',
   width: '100%',
+  '@media (max-width: 600px)': {
+    display: 'none',
+  },
 };
 
 const searchIcon = {
   color: 'var(--primary-font-color)',
+};
+
+const searchIconSingle = {
+  color: 'var(--primary-font-color)',
+  marginRight: '24px',
+  '@media (min-width: 600px)': {
+    display: 'none',
+  },
 };
 
 const searchIconWrapper = {
@@ -29,6 +40,7 @@ const styledInputBase = {
 export const styles = {
   search,
   searchIcon,
+  searchIconSingle,
   searchIconWrapper,
   styledInputBase,
 };

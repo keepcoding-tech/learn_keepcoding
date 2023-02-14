@@ -1,5 +1,6 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import React from 'react';
 import { styles } from './HeaderSearchStyles';
@@ -36,6 +37,9 @@ const HeaderSearch: React.FC<IHeaderSearch> = () => {
 
   return (
     <>
+      <IconButton sx={styles.searchIconSingle}>
+        <SearchIcon />
+      </IconButton>
       <Search sx={styles.search}>
         <SearchIconWrapper sx={styles.searchIconWrapper}>
           <SearchIcon sx={styles.searchIcon} />

@@ -12,6 +12,12 @@ body {
   padding: 0;
 }
 
+@media (max-width: 400px) {
+  html {
+    margin-right: -28px;
+  }
+}
+
 /* General Styles */
 body {
   font-family: 'Roboto', sans-serif;
