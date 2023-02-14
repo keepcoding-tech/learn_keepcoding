@@ -1,4 +1,4 @@
-import { IToggleTheme } from './ToggleTheme';
+import { IToggleTheme } from '../../../components/theme/toggle/ToggleTheme';
 
 const toggleDark: IToggleTheme = {};
 

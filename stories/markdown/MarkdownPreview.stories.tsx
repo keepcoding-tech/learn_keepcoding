@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MarkdownPreview, {
   IMarkdownPreview,
 } from '../../components/markdown/MarkdownPreview';
-import { mocksMarkdownPreviewProps } from '../../components/markdown/MarkdownPreview.mocks';
+import { mocksMarkdownPreviewProps } from './MarkdownPreview.mocks';
 
 export default {
   title: 'markdown/MarkdownPreview',

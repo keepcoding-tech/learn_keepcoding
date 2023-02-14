@@ -1,4 +1,4 @@
-import { IDocTemplate } from './DocTemplate';
+import { IDocTemplate } from '../../../components/templates/doc/DocTemplate';
 
 const storybookDoc: IDocTemplate = {
   id: 'storybook-page',

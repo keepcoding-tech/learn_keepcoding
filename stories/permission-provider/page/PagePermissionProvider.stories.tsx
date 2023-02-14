@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import PagePermissionProvider, {
   IPagePermissionProvider,
 } from '../../../components/permission-provider/page/PagePermissionProvider';
-import { mocksPagePermissionProviderProps } from '../../../components/permission-provider/page/PagePermissionProvider.mocks';
+import { mocksPagePermissionProviderProps } from './PagePermissionProvider.mocks';
 
 export default {
-  title: 'permission-provider/page-provider/PermissionProviderPage',
+  title: 'permission-provider/page/PagePermissionProvider',
   component: PagePermissionProvider,
   argTypes: {},
 } as ComponentMeta<typeof PagePermissionProvider>;

@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/system/Box';
 import Head from 'next/head';
 import React, { useState } from 'react';
-import Footer from '../../footer/Footer';
+import PrimaryFooter from '../../footers/primary/PrimaryFooter';
 import NavigationBar from '../../headers/navbar/NavigationBar';
 import Sidebar from '../../sidebar/Sidebar';
 import SidebarState from '../../sidebar/SidebarState';
@@ -36,7 +36,7 @@ const DocsLayout: React.FC<IDocsLayout> = (param) => {
             docsIds={param.sidebar.docsIds}
           />
           <Container sx={styles.container}>{param.children}</Container>
-          <Footer />
+          <PrimaryFooter />
         </SidebarState.Provider>
       </Box>
     </>

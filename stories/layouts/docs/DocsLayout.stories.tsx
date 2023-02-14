@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DocsLayout, {
   IDocsLayout,
 } from '../../../components/layouts/docs/DocsLayout';
-import { mocksDocsLayoutProps } from '../../../components/layouts/docs/DocsLayout.mocks';
+import { mocksDocsLayoutProps } from './DocsLayout.mocks';
 
 export default {
-  title: 'layouts/primary/DocsLayout',
+  title: 'layouts/docs/DocsLayout',
   component: DocsLayout,
   argTypes: {},
 } as ComponentMeta<typeof DocsLayout>;

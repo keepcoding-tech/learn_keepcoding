@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MarkdownEditor, {
   IMarkdownEditor,
 } from '../../components/markdown/MarkdownEditor';
-import { mocksMarkdownEditorProps } from '../../components/markdown/MarkdownEditor.mocks';
+import { mocksMarkdownEditorProps } from './MarkdownEditor.mocks';
 
 export default {
   title: 'markdown/MarkdownEditor',

@@ -23,7 +23,8 @@ const NavigationBar: React.FC<INavigationBar> = (props) => {
             onClick={() => Router.push('/')}
             src={logo}
             alt="Logo"
-            style={styles.image}
+            width={150}
+            height={50}
           />
           <div className="expander"></div>
           <HeaderSearch />

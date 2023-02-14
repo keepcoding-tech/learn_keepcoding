@@ -1,4 +1,4 @@
-import { ISidebar } from './Sidebar';
+import { ISidebar } from '../../components/sidebar/Sidebar';
 
 const sidebar: ISidebar = {
   module: 'Fundamentals',

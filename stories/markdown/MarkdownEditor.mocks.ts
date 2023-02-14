@@ -1,5 +1,5 @@
 import { SetStateAction } from 'react';
-import { IMarkdownEditor } from './MarkdownEditor';
+import { IMarkdownEditor } from '../../components/markdown/MarkdownEditor';
 
 const markdownContent = `
 # header  
@@ -15,6 +15,7 @@ const markdownContent = `
   function foo (a) {
     return a / 100;
   }
+
   console.log(123); // 1
 \`\`\`
 `;

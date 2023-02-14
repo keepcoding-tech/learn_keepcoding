@@ -1,4 +1,4 @@
-import { IMarkdownPreview } from './MarkdownPreview';
+import { IMarkdownPreview } from '../../components/markdown/MarkdownPreview';
 
 const preview: IMarkdownPreview = {
   children: `
@@ -15,6 +15,7 @@ const preview: IMarkdownPreview = {
       function foo (a) {
         return a / 100;
       }
+
       console.log(123); // 1
     \`\`\`
   `,

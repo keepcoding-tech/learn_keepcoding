@@ -1,4 +1,4 @@
-import { IPagePermissionProvider } from './PagePermissionProvider';
+import { IPagePermissionProvider } from '../../../components/permission-provider/page/PagePermissionProvider';
 
 const pageProvider: IPagePermissionProvider = {
   children: 'This is some content',

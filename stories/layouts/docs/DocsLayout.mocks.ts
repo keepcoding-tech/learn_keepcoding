@@ -1,4 +1,4 @@
-import { IDocsLayout } from './DocsLayout';
+import { IDocsLayout } from '../../../components/layouts/docs/DocsLayout';
 
 const docs: IDocsLayout = {
   children: 'Hello, World!!',

@@ -2,13 +2,13 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-import SidebarState from '../sidebar/SidebarState';
+import SidebarState from '../../sidebar/SidebarState';
 
-export interface IFooter {
+export interface IPrimaryFooter {
   /* nothing here yet */
 }
 
-const Footer: React.FC<IFooter> = () => {
+const PrimaryFooter: React.FC<IPrimaryFooter> = () => {
   const { open } = useContext(SidebarState);
 
   const FooterBox = styled('footer')(() => ({
@@ -162,4 +162,4 @@ const Footer: React.FC<IFooter> = () => {
   );
 };
 
-export default Footer;
+export default PrimaryFooter;

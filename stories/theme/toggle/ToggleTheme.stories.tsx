@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ToggleTheme, {
   IToggleTheme,
 } from '../../../components/theme/toggle/ToggleTheme';
-import { mocksToggleThemeProps } from '../../../components/theme/toggle/ToggleTheme.mocks';
+import { mocksToggleThemeProps } from './ToggleTheme.mocks';
 
 export default {
-  title: 'theme/ToggleTheme',
+  title: 'theme/toggle/ToggleTheme',
   component: ToggleTheme,
   argTypes: {},
 } as ComponentMeta<typeof ToggleTheme>;

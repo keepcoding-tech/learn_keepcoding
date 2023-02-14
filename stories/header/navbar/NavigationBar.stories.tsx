@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import NavigationBar, {
   INavigationBar,
-} from '../../components/headers/navbar/NavigationBar';
-import { mocksHeaderProps } from '../../components/headers/navbar/NavigationBar.mocks';
+} from '../../../components/headers/navbar/NavigationBar';
+import { mocksNavigationBarProps } from './NavigationBar.mocks';
 
 export default {
-  title: 'header/Header',
+  title: 'headers/navbar/NavigationBar',
   component: NavigationBar,
   argTypes: {},
 } as ComponentMeta<typeof NavigationBar>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof NavigationBar> = (args) => (
   <NavigationBar {...args} />
 );
 
-export const SBHeader = Template.bind({});
+export const SBNavigationBar = Template.bind({});
 
-SBHeader.args = {
-  ...mocksHeaderProps.navbar,
+SBNavigationBar.args = {
+  ...mocksNavigationBarProps.navbar,
 } as INavigationBar;
