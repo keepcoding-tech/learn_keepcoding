@@ -2,10 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DocTemplate, {
   IDocTemplate,
 } from '../../../components/templates/doc/DocTemplate';
-import { mocksDocTemplateProps } from './DocTemplate.mocks';
+import { mocksDocTemplateProps } from './DocsTemplate.mocks';
 
 export default {
-  title: 'templates/docs/DocTemplate',
+  title: 'templates/docs',
   component: DocTemplate,
   argTypes: {},
 } as ComponentMeta<typeof DocTemplate>;
@@ -14,8 +14,14 @@ const Template: ComponentStory<typeof DocTemplate> = (args) => (
   <DocTemplate {...args} />
 );
 
-export const SBDocTemplate = Template.bind({});
+export const SBDefaultDocTemplate = Template.bind({});
 
-SBDocTemplate.args = {
-  ...mocksDocTemplateProps.storybookDoc,
+SBDefaultDocTemplate.args = {
+  ...mocksDocTemplateProps.defaultDocTemplate,
+} as IDocTemplate;
+
+export const SBEmptyDocTemplate = Template.bind({});
+
+SBEmptyDocTemplate.args = {
+  ...mocksDocTemplateProps.emptyDocTemplate,
 } as IDocTemplate;

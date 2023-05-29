@@ -1,7 +1,7 @@
 import { INavigationBar } from '../../../components/headers/navbar/NavigationBar';
 
-const navbar: INavigationBar = {
+const defaultNavigationBar: INavigationBar = {
   sessionStatus: 'Login',
 };
 
-export const mocksNavigationBarProps = { navbar };
+export const mocksNavigationBarProps = { defaultNavigationBar };

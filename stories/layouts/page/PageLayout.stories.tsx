@@ -5,7 +5,7 @@ import PageLayout, {
 import { mocksPageLayoutProps } from './PageLayout.mocks';
 
 export default {
-  title: 'layouts/page/PageLayout',
+  title: 'layouts/page',
   component: PageLayout,
   argTypes: {},
 } as ComponentMeta<typeof PageLayout>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof PageLayout> = (args) => (
   <PageLayout {...args} />
 );
 
-export const SBPageLayout = Template.bind({});
+export const SBDefaultPageLayout = Template.bind({});
 
-SBPageLayout.args = {
-  ...mocksPageLayoutProps.page,
+SBDefaultPageLayout.args = {
+  ...mocksPageLayoutProps.defaultPageLayout,
 } as IPageLayout;

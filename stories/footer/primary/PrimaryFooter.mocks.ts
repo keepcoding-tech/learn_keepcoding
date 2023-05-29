@@ -1,7 +1,7 @@
 import { IPrimaryFooter } from '../../../components/footers/primary/PrimaryFooter';
 
-const primaryFooter: IPrimaryFooter = {
+const defaultPrimaryFooter: IPrimaryFooter = {
   /* nothing here yet */
 };
 
-export const mocksPrimaryFooterProps = { primaryFooter };
+export const mocksPrimaryFooterProps = { defaultPrimaryFooter };

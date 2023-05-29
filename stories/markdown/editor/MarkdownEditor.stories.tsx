@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MarkdownEditor, {
   IMarkdownEditor,
-} from '../../components/markdown/MarkdownEditor';
+} from '../../../components/markdown/editor/MarkdownEditor';
 import { mocksMarkdownEditorProps } from './MarkdownEditor.mocks';
 
 export default {
-  title: 'markdown/MarkdownEditor',
+  title: 'markdown/editor',
   component: MarkdownEditor,
   argTypes: {},
 } as ComponentMeta<typeof MarkdownEditor>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof MarkdownEditor> = (args) => (
   <MarkdownEditor {...args} />
 );
 
-export const SBMarkdownEditor = Template.bind({});
+export const SBDefaultMarkdownEditor = Template.bind({});
 
-SBMarkdownEditor.args = {
-  ...mocksMarkdownEditorProps.editor,
+SBDefaultMarkdownEditor.args = {
+  ...mocksMarkdownEditorProps.defaultMarkdownEditor,
 } as IMarkdownEditor;

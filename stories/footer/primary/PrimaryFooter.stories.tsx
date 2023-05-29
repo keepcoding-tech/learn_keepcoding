@@ -5,7 +5,7 @@ import PrimaryFooter, {
 import { mocksPrimaryFooterProps } from './PrimaryFooter.mocks';
 
 export default {
-  title: 'footers/primary/PrimaryFooter',
+  title: 'footers/primary',
   component: PrimaryFooter,
   argTypes: {},
 } as ComponentMeta<typeof PrimaryFooter>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof PrimaryFooter> = (args) => (
   <PrimaryFooter {...args} />
 );
 
-export const SBPrimaryFooter = Template.bind({});
+export const SBDefaultPrimaryFooter = Template.bind({});
 
-SBPrimaryFooter.args = {
-  ...mocksPrimaryFooterProps.primaryFooter,
+SBDefaultPrimaryFooter.args = {
+  ...mocksPrimaryFooterProps.defaultPrimaryFooter,
 } as IPrimaryFooter;

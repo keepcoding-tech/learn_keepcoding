@@ -1,6 +1,6 @@
-import { IMarkdownPreview } from '../../components/markdown/MarkdownPreview';
+import { IMarkdownPreview } from '../../../components/markdown/preview/MarkdownPreview';
 
-const preview: IMarkdownPreview = {
+const defaultMarkdownPreview: IMarkdownPreview = {
   children: `
     # header
     ## header
@@ -21,4 +21,4 @@ const preview: IMarkdownPreview = {
   `,
 };
 
-export const mocksMarkdownPreviewProps = { preview };
+export const mocksMarkdownPreviewProps = { defaultMarkdownPreview };

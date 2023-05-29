@@ -1,37 +1,67 @@
 import { ISidebar } from '../../components/sidebar/Sidebar';
 
-const sidebar: ISidebar = {
+const defaultSidebar: ISidebar = {
   module: {
-    id: 'fundamentals',
-    title: 'Fundamentals',
+    id: 'test-module',
+    title: 'Test Module',
   },
   chapters: [
     {
-      id: 'get-started',
-      title: 'Get started with KCDP',
-      docChapter: [
+      id: 'test-chapter',
+      title: 'Test Chapter',
+      documents: [
         {
-          document: {
-            id: 'test-0',
-            title: 'test 0',
-          },
+          id: 'test-doc-0',
+          title: 'test doc 0',
         },
         {
-          document: {
-            id: 'test-1',
-            title: 'test 1',
-          },
+          id: 'test-doc-1',
+          title: 'test doc 1',
         },
         {
-          document: {
-            id: 'test-2',
-            title: 'test 2',
-          },
+          id: 'test-doc-2',
+          title: 'test doc 2',
+        },
+      ],
+    },
+    {
+      id: 'test-chapter-1',
+      title: 'Test Chapter 1',
+      documents: [
+        {
+          id: 'test-doc-0',
+          title: 'test doc 0',
+        },
+        {
+          id: 'test-doc-1',
+          title: 'test doc 1',
+        },
+        {
+          id: 'test-doc-2',
+          title: 'test doc 2',
+        },
+      ],
+    },
+    {
+      id: 'test-chapter-2',
+      title: 'Test Chapter 2',
+      documents: [
+        {
+          id: 'test-doc-0',
+          title: 'test doc 0',
+        },
+        {
+          id: 'test-doc-1',
+          title: 'test doc 1',
+        },
+        {
+          id: 'test-doc-2',
+          title: 'test doc 2',
         },
       ],
     },
   ],
-  currentChapter: 'get-started',
+  currentChapter: 'test-chapter',
 };
 
-export const mocksSidebarProps = { sidebar };
+export const mocksSidebarProps = { defaultSidebar };

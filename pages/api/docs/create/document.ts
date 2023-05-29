@@ -1,15 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import prisma from '../../../lib/prisma';
+import prisma from '../../../../lib/prisma';
 
 async function handle(req: NextApiRequest, res: NextApiResponse) {
-  const { docId, title, category } = req.body.doc;
+  const { id, title } = req.body.doc;
   const content = req.body.content;
 
   const session = await getSession({ req });
   const result = await prisma.document.create({
     data: {
-      id: docId,
+      id: id,
       title: title,
       content: content,
       author: {
@@ -17,8 +17,6 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
           email: String(session?.user?.email),
         },
       },
-      // @ts-ignore
-      category: category,
     },
   });
 

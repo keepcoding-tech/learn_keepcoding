@@ -1,8 +1,8 @@
-import { Box } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 import React from 'react';
+import TextInput from '../../utils/text-input/TextInput';
+import MarkdownPreview from '../preview/MarkdownPreview';
 import { styles } from './MarkdownEditorStyles';
-import MarkdownPreview from './MarkdownPreview';
 
 export interface IMarkdownEditor {
   id: string;
@@ -11,19 +11,17 @@ export interface IMarkdownEditor {
 }
 
 const MarkdownEditor: React.FC<IMarkdownEditor> = (props) => {
-  function updateMarkdown(event: { target: { value: any } }) {
-    props.setMarkdown(event.target.value);
-  }
-
   return (
     <Box sx={styles.markdownWrapper}>
-      <TextField
+      <TextInput
         id={props.id}
-        multiline
-        minRows={12}
         value={props.markdown}
-        onChange={updateMarkdown}
-        sx={styles.textArea}
+        label={'Nothing here yet'}
+        setInput={props.setMarkdown}
+        required={false}
+        fullWidth={true}
+        multiline={true}
+        minRow={12}
       />
       <MarkdownPreview>{props.markdown}</MarkdownPreview>
     </Box>

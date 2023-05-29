@@ -5,7 +5,7 @@ import PagePermissionProvider, {
 import { mocksPagePermissionProviderProps } from './PagePermissionProvider.mocks';
 
 export default {
-  title: 'permission-provider/page/PagePermissionProvider',
+  title: 'permission-provider/page',
   component: PagePermissionProvider,
   argTypes: {},
 } as ComponentMeta<typeof PagePermissionProvider>;

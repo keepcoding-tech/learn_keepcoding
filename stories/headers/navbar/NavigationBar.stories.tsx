@@ -5,7 +5,7 @@ import NavigationBar, {
 import { mocksNavigationBarProps } from './NavigationBar.mocks';
 
 export default {
-  title: 'headers/navbar/NavigationBar',
+  title: 'headers/navbar',
   component: NavigationBar,
   argTypes: {},
 } as ComponentMeta<typeof NavigationBar>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof NavigationBar> = (args) => (
   <NavigationBar {...args} />
 );
 
-export const SBNavigationBar = Template.bind({});
+export const SBDefaultNavigationBar = Template.bind({});
 
-SBNavigationBar.args = {
-  ...mocksNavigationBarProps.navbar,
+SBDefaultNavigationBar.args = {
+  ...mocksNavigationBarProps.defaultNavigationBar,
 } as INavigationBar;

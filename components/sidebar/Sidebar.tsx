@@ -22,11 +22,9 @@ export interface ISidebar {
   chapters: {
     id: string;
     title: string;
-    docChapter: {
-      document: {
-        id: string;
-        title: string;
-      };
+    documents: {
+      id: string;
+      title: string;
     }[];
   }[];
   currentChapter: string;
@@ -74,13 +72,13 @@ const Sidebar: React.FC<ISidebar> = (param) => {
                   </span>
                 </AccordionSummary>
                 <AccordionDetails>
-                  {chapter.docChapter.map((doc) => (
-                    <div key={doc.document.id} style={styles.doc}>
+                  {chapter.documents.map((doc) => (
+                    <div key={doc.id} style={styles.doc}>
                       <a
                         className="link"
-                        href={`/docs/${param.module.id}/${chapter.id}/${doc.document.id}`}
+                        href={`/docs/${param.module.id}/${chapter.id}/${doc.id}`}
                       >
-                        {doc.document.title}
+                        {doc.title}
                       </a>
                     </div>
                   ))}

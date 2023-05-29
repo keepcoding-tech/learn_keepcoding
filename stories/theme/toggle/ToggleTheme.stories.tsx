@@ -5,7 +5,7 @@ import ToggleTheme, {
 import { mocksToggleThemeProps } from './ToggleTheme.mocks';
 
 export default {
-  title: 'theme/toggle/ToggleTheme',
+  title: 'theme/toggle',
   component: ToggleTheme,
   argTypes: {},
 } as ComponentMeta<typeof ToggleTheme>;

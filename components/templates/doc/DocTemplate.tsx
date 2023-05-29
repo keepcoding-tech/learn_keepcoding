@@ -7,11 +7,11 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
 import Router from 'next/router';
 import React, { useContext } from 'react';
-import MarkdownPreview from '../../markdown/MarkdownPreview';
+import MarkdownPreview from '../../markdown/preview/MarkdownPreview';
 import SidebarState from '../../sidebar/SidebarState';
 import { styles } from './DocTemplateStyles';
 

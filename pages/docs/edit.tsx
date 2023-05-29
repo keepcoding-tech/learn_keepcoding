@@ -11,7 +11,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import PageLayout from '../../components/layouts/page/PageLayout';
-import MarkdownEditor from '../../components/markdown/MarkdownEditor';
+import MarkdownEditor from '../../components/markdown/editor/MarkdownEditor';
 import PagePermissionProvider from '../../components/permission-provider/page/PagePermissionProvider';
 import prisma from '../../lib/prisma';
 

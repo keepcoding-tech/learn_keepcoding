@@ -1,7 +1,7 @@
 import { IPageLayout } from '../../../components/layouts/page/PageLayout';
 
-const page: IPageLayout = {
+const defaultPageLayout: IPageLayout = {
   children: 'Hello, World!!',
 };
 
-export const mocksPageLayoutProps = { page };
+export const mocksPageLayoutProps = { defaultPageLayout };

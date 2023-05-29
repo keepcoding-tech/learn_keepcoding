@@ -12,8 +12,8 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
   <Sidebar {...args} />
 );
 
-export const SBSidebar = Template.bind({});
+export const SBDefaultSidebar = Template.bind({});
 
-SBSidebar.args = {
-  ...mocksSidebarProps.sidebar,
+SBDefaultSidebar.args = {
+  ...mocksSidebarProps.defaultSidebar,
 } as ISidebar;

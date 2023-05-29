@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import MarkdownPreview, {
   IMarkdownPreview,
-} from '../../components/markdown/MarkdownPreview';
+} from '../../../components/markdown/preview/MarkdownPreview';
 import { mocksMarkdownPreviewProps } from './MarkdownPreview.mocks';
 
 export default {
-  title: 'markdown/MarkdownPreview',
+  title: 'markdown/preview',
   component: MarkdownPreview,
   argTypes: {},
 } as ComponentMeta<typeof MarkdownPreview>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof MarkdownPreview> = (args) => (
   <MarkdownPreview {...args} />
 );
 
-export const SBMarkdownPreview = Template.bind({});
+export const SBDefaultMarkdownPreview = Template.bind({});
 
-SBMarkdownPreview.args = {
-  ...mocksMarkdownPreviewProps.preview,
+SBDefaultMarkdownPreview.args = {
+  ...mocksMarkdownPreviewProps.defaultMarkdownPreview,
 } as IMarkdownPreview;

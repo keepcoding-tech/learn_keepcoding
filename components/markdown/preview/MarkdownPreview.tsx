@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import oneDark from 'react-syntax-highlighter/dist/cjs/styles/prism/one-dark';
 import oneLight from 'react-syntax-highlighter/dist/cjs/styles/prism/one-light';
 import remarkGfm from 'remark-gfm';
-import ToggleThemeState from '../theme/toggle/ToggleThemeState';
+import ToggleThemeState from '../../theme/toggle/ToggleThemeState';
 import { styles } from './MarkdownPreviewStyles';
 
 export interface IMarkdownPreview {

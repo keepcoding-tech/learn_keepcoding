@@ -29,40 +29,30 @@ model Account {
 }
 
 model Chapter {
-  id         String       @id @unique
-  title      String
-  createdAt  DateTime     @default(now()) @map("created_at")
-  updatedAt  DateTime     @updatedAt @map("updated_at")
-  moduleId   String       @map("module_id")
-  modules    Module       @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  docChapter DocChapter[]
+  id        String     @id @unique
+  title     String
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  moduleId  String?    @map("module_id")
+  module    Module?    @relation(fields: [moduleId], references: [id])
+  documents Document[]
 
   @@map("chapters")
 }
 
 model Document {
-  id         String       @id @unique
-  title      String
-  content    String?
-  category   String?
-  createdAt  DateTime     @default(now()) @map("created_at")
-  updatedAt  DateTime     @updatedAt @map("updated_at")
-  published  Boolean      @default(true)
-  authorId   String?      @map("author_id")
-  author     User?        @relation(fields: [authorId], references: [id])
-  docChapter DocChapter[]
+  id        String   @id @unique
+  title     String
+  content   String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  published Boolean  @default(true)
+  authorId  String?  @map("author_id")
+  author    User?    @relation(fields: [authorId], references: [id])
+  chapterId String?  @map("chapter_id")
+  chapter   Chapter? @relation(fields: [chapterId], references: [id])
 
   @@map("documents")
-}
-
-model DocChapter {
-  docId     String   @map("doc_id")
-  chapterId String   @map("chapter_id")
-  chapter   Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
-  document  Document @relation(fields: [docId], references: [id], onDelete: Cascade)
-
-  @@id([docId, chapterId])
-  @@map("doc_chapter")
 }
 
 model Module {

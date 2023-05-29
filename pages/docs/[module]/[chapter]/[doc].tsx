@@ -19,14 +19,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       moduleId: String(moduleId),
     },
     include: {
-      docChapter: {
-        include: {
-          document: {
-            select: {
-              id: true,
-              title: true,
-            },
-          },
+      documents: {
+        select: {
+          id: true,
+          title: true,
         },
       },
     },

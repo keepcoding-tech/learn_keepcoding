@@ -1,41 +1,35 @@
 import { IDocsLayout } from '../../../components/layouts/docs/DocsLayout';
 
-const docs: IDocsLayout = {
-  children: 'Hello, World!!',
+const defaultDocLayout: IDocsLayout = {
+  children: 'Default Docs Layout',
   status: 'authenticated',
   sidebar: {
     module: {
-      id: 'fundamentals',
-      title: 'Fundamentals',
+      id: 'test-module',
+      title: 'Test Module',
     },
     chapters: [
       {
-        id: 'get-started',
-        title: 'Get started with KCDP',
-        docChapter: [
+        id: 'test-chapter',
+        title: 'Test Chapter',
+        documents: [
           {
-            document: {
-              id: 'test-0',
-              title: 'test 0',
-            },
+            id: 'test-doc-0',
+            title: 'test doc 0',
           },
           {
-            document: {
-              id: 'test-1',
-              title: 'test 1',
-            },
+            id: 'test-doc-1',
+            title: 'test doc 1',
           },
           {
-            document: {
-              id: 'test-2',
-              title: 'test 2',
-            },
+            id: 'test-doc-2',
+            title: 'test doc 2',
           },
         ],
       },
     ],
-    currentChapter: 'get-started',
+    currentChapter: 'test-chapter',
   },
 };
 
-export const mocksDocsLayoutProps = { docs };
+export const mocksDocsLayoutProps = { defaultDocLayout };

@@ -19,11 +19,9 @@ export interface IDocsLayout {
     chapters: {
       id: string;
       title: string;
-      docChapter: {
-        document: {
-          id: string;
-          title: string;
-        };
+      documents: {
+        id: string;
+        title: string;
       }[];
     }[];
     currentChapter: string;

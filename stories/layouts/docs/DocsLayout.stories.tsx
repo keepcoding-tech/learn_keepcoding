@@ -5,7 +5,7 @@ import DocsLayout, {
 import { mocksDocsLayoutProps } from './DocsLayout.mocks';
 
 export default {
-  title: 'layouts/docs/DocsLayout',
+  title: 'layouts/docs',
   component: DocsLayout,
   argTypes: {},
 } as ComponentMeta<typeof DocsLayout>;
@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof DocsLayout> = (args) => (
   <DocsLayout {...args} />
 );
 
-export const SBDocsLayout = Template.bind({});
+export const SBDefaultDocsLayout = Template.bind({});
 
-SBDocsLayout.args = {
-  ...mocksDocsLayoutProps.docs,
+SBDefaultDocsLayout.args = {
+  ...mocksDocsLayoutProps.defaultDocLayout,
 } as IDocsLayout;
