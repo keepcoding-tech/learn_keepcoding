@@ -1,6 +1,6 @@
 const accordion = {
-  backgroundColor: 'var(--cards-color)',
-  color: 'var(--secondary-font-color)',
+  backgroundColor: 'var(--primary-background-color)',
+  color: 'var(--primary-bold-font-color)',
 };
 
 const accordionSummary = {
@@ -20,8 +20,8 @@ const drawer = {
   '& .MuiDrawer-paper': {
     width: 290,
     boxSizing: 'border-box',
-    backgroundColor: 'var(--cards-color)',
-    color: 'var(--secondary-font-color)',
+    backgroundColor: 'var(--primary-background-color)',
+    color: 'var(--primary-font-color)',
   },
   '@media (max-width: 900px)': {
     display: 'none',
@@ -35,8 +35,8 @@ const drawerHeader = {
 };
 
 const fabIn = {
-  backgroundColor: 'var(--background-color)',
-  color: 'var(--primary-font-color)',
+  backgroundColor: 'var(--primary-button-color)',
+  color: 'var(--tertiary-font-color)',
   margin: 0,
   top: 'auto',
   right: 'auto',
@@ -44,13 +44,13 @@ const fabIn = {
   left: 200,
   position: 'fixed',
   '&:hover': {
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: 'var(--primary-button-color)',
   },
 };
 
 const fabOut = {
-  backgroundColor: 'var(--background-color)',
-  color: 'var(--primary-font-color)',
+  backgroundColor: 'var(--primary-button-color)',
+  color: 'var(--tertiary-font-color)',
   margin: 0,
   top: 'auto',
   right: 'auto',
@@ -58,7 +58,7 @@ const fabOut = {
   left: 20,
   position: 'fixed',
   '&:hover': {
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: 'var(--primary-button-color)',
   },
 };
 
@@ -67,8 +67,8 @@ const icon = {
 };
 
 const inputBase = {
-  marginLeft: 3,
   color: 'var(--primary-font-color)',
+  marginLeft: 3,
 };
 
 const paper = {
@@ -78,15 +78,17 @@ const paper = {
   margin: '24px 24px',
   width: 220,
   height: 30,
-  backgroundColor: 'var(--text-field-color)',
+  backgroundColor: 'var(--tertiary-background-color)',
 };
 
 const moduleText = {
+  color: 'var(--primary-bold-font-color)',
   margin: '12px 24px',
   fontSize: '14px',
 };
 
 const chapterText = {
+  color: 'var(--primary-bold-font-color)',
   fontSize: '14px',
 };
 

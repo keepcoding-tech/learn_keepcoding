@@ -1,5 +1,5 @@
 const appBar = {
-  bgcolor: 'var(--header-footer-color)',
+  bgcolor: 'var(--primary-background-color)',
   zIndex: (theme: { zIndex: { drawer: number } }) => theme.zIndex.drawer + 1,
 };
 

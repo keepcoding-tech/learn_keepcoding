@@ -1,7 +1,5 @@
 const footer = {
-  '@media (min-width: 900px) and (max-width: 1800px)': {
-    marginLeft: '290px',
-  },
+  backgroundColor: 'var(--primary-background-color)',
 };
 
 export const styles = {

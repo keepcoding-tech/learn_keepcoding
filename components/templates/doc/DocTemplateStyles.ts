@@ -7,21 +7,17 @@ const icon = {
   color: 'var(--primary-font-color)',
 };
 
-const iconButton = {
-  marginBottom: '24px',
-};
+const iconButton = {};
 
-const grid = {
-  marginLeft: '24px',
-};
+const grid = {};
 
 const gridItem = {
-  marginLeft: 5,
+  marginLeft: 2,
 };
 
 const paperBox = {
-  backgroundColor: 'var(--cards-color)',
-  color: 'var(--secondary-font-color)',
+  backgroundColor: 'var(--paper-background-color)',
+  color: 'var(--primary-font-color)',
   padding: '24px',
 };
 

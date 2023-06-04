@@ -12,60 +12,66 @@ body {
   padding: 0;
 }
 
-@media (max-width: 400px) {
-  html {
-    margin-right: -28px;
-  }
-}
-
 /* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
-  color: var(--secondary-font-color);
-}
-
-footer {
-  background-color: var(--header-footer-color);
-}
-
-li {
-  margin-left: 48px;
+  font-family: 'Calibri', sans-serif;
+  font-size: 1.1em;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-font-color);
 }
 
 /* Color Scheme */
 :root {
-  --text-field-color: #f0f2f3;
-  --header-footer-color: #ffffff;
-  --background-color: #e8eaed;
-  --cards-color: #ffffff;
+  --disabled-font-color: #20212480;
+
+  --primary-background-color: #ffffffff;
+  --secondary-background-color: #e8eaedff;
+  --tertiary-background-color: #f0f2f3ff;
+
+  --paper-background-color: #ffffffff;
+
   --primary-font-color: #5f6368ff;
   --secondary-font-color: #202124ff;
-  --disabled-font-color: #20212480;
-  --hr-border-color: #e8eaed80;
-  --link-color: #0000ee;
-  --code-background-color: #fafafa;
+  --tertiary-font-color: #505050ff;
+
+  --primary-button-color: #e8eaedff;
+  --warning-button-color: #ffae57ff;
+  --success-button-color: #bae67eff;
+  --error-button-color: #ef6b73ff;
+
+  --primary-bold-font-color: #5f6368ff;
+  --secondary-bold-font-color: #5f6f68ff;
+
+  --link-color: #0000eeff;
+  --code-background-color: #f0f3f4ff;
+
+  --purple-color: #c3a6ffff;
 }
 
 [data-theme='dark'] {
-  --background-color: #1d2433;
-  --primary-font-color: #a2aabc;
-  --secondary-font-color: #8695b7;
-  --cards-color: #2f3b54;
+  --primary-background-color: #171c28ff;
+  --secondary-background-color: #1d2433ff;
+  --tertiary-background-color: #2f3b54ff;
 
-  --text-field-color: #1d2433;
-  --header-footer-color: #171c28;
-  --disabled-font-color: #ffffff80;
-  --hr-border-color: #8695b7;
+  --paper-background-color: #2f3b54ff;
+
+  --primary-font-color: #8695b7ff;
+  --secondary-font-color: #a2aabcff;
+  --tertiary-font-color: #d7dce2ff;
+
+  --primary-button-color: #6679a4ff;
+  --warning-button-color: #ffae57ff;
+  --success-button-color: #bae67eff;
+  --error-button-color: #ef6b73ff;
+
+  --primary-bold-font-color: #ffd580ff;
+  --secondary-bold-font-color: #ffcc66ff;
+
   --link-color: #5ccfe6;
   --code-background-color: #282c34;
-}
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+  --purple-color: #c3a6ffff;
+}
 
 /* Links */
 a {
@@ -73,7 +79,7 @@ a {
 }
 
 .link {
-  color: var(--secondary-font-color);
+  color: var(--primary-font-color);
   text-decoration: none;
 }
 
@@ -83,11 +89,18 @@ a {
 
 /* Typography */
 blockquote {
-  background-color: var(--text-field-color);
+  background-color: var(--secondary-background-color);
   margin-bottom: 24px;
-  padding: 10px 0px 5px 55px;
+  padding: 10px 20px 5px 20px;
   margin-left: -48px;
   margin-right: -48px;
+}
+
+@media (max-width: 500px) {
+  blockquote {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
 }
 
 svg {
@@ -151,13 +164,13 @@ h6 {
 }
 
 .long-divider {
-  border-color: var(--hr-border-color);
+  border-color: var(--primary-button-color);
   margin-left: 24px;
   margin-right: 24px;
 }
 
 .short-divider {
-  border-color: var(--hr-border-color);
+  border-color: var(--primary-button-color);
 }
 
 /* Mui Material */

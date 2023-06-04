@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import PageLayout from '../../components/layouts/page/PageLayout';
 import MarkdownEditor from '../../components/markdown/editor/MarkdownEditor';
 import PagePermissionProvider from '../../components/permission-provider/page/PagePermissionProvider';
+import DocTemplate from '../../components/templates/doc/DocTemplate';
 import SelectInput from '../../components/utils/select/SelectInput';
 import TextInput from '../../components/utils/text-input/TextInput';
 
@@ -126,17 +127,40 @@ const Create: NextPage = () => {
                   </Grid>
                 </>
               ) : (
-                <Grid item xs={12}>
-                  <MarkdownEditor
-                    id="content"
-                    markdown={content}
-                    setMarkdown={setContent}
-                  />
-                </Grid>
+                <>
+                  <Grid item xs={12}>
+                    <MarkdownEditor
+                      id="content"
+                      markdown={content}
+                      setMarkdown={setContent}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <DocTemplate
+                      id={id}
+                      title={title}
+                      content={content}
+                      category={category}
+                      createdAt={'-'}
+                      updatedAt={'-'}
+                      published={false}
+                      authorId={'-'}
+                      author={{
+                        name: '',
+                        email: '',
+                      }}
+                    />
+                  </Grid>
+                </>
               )}
               <Grid item xs={2} />
               <Grid item xs={8}>
                 <Button
+                  sx={{
+                    backgroundColor: 'var(--success-button-color)',
+                    color: 'var(--primary-background-color)',
+                    fontSize: '18px',
+                  }}
                   id="create"
                   variant="contained"
                   disabled={!id || !title || !category}

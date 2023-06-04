@@ -1,8 +1,8 @@
 const search = {
   position: 'relative',
-  backgroundColor: 'var(--text-field-color)',
+  backgroundColor: 'var(--tertiary-background-color)',
   '&:hover': {
-    backgroundColor: 'var(--text-field-color)',
+    backgroundColor: 'var(--tertiary-background-color)',
   },
   marginLeft: 0,
   marginRight: '24px',
@@ -19,7 +19,7 @@ const searchIcon = {
 const searchIconSingle = {
   color: 'var(--primary-font-color)',
   marginRight: '24px',
-  '@media (min-width: 600px)': {
+  '@media (min-width: 601px)': {
     display: 'none',
   },
 };

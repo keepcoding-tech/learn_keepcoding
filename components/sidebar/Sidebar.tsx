@@ -53,7 +53,9 @@ const Sidebar: React.FC<ISidebar> = (param) => {
           <InputBase placeholder="Filter" sx={styles.inputBase} />
         </Paper>
         <hr className="short-divider" />
-        <span style={styles.moduleText}>{param.module.title}</span>
+        <span style={styles.moduleText}>
+          <b>{param.module.title.toUpperCase()}</b>
+        </span>
         <hr className="short-divider" />
         <div>
           {param.chapters.map((chapter) => (
@@ -68,7 +70,7 @@ const Sidebar: React.FC<ISidebar> = (param) => {
                   expandIcon={<ExpandMoreIcon sx={styles.icon} />}
                 >
                   <span style={styles.chapterText}>
-                    <b>{chapter.title}</b>
+                    {chapter.title.toUpperCase()}
                   </span>
                 </AccordionSummary>
                 <AccordionDetails>

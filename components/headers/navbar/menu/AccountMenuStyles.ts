@@ -10,7 +10,7 @@ const iconButton = {
 const menuPaperProps = {
   elevation: 0,
   sx: {
-    bgcolor: 'var(--cards-color)',
+    bgcolor: 'var(--tertiary-background-color)',
     overflow: 'visible',
     filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
     mt: 1.5,
@@ -28,7 +28,7 @@ const menuPaperProps = {
       right: 14,
       width: 10,
       height: 10,
-      bgcolor: 'var(--cards-color)',
+      bgcolor: 'var(--tertiary-background-color)',
       transform: 'translateY(-50%) rotate(45deg)',
       zIndex: 0,
     },
