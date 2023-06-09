@@ -3,21 +3,17 @@ import prisma from '../../../../lib/prisma';
 
 async function handle(req: NextApiRequest, res: NextApiResponse) {
   const { id, title } = req.body.doc;
-  let documents: { id: string }[] = [];
+  const chapters = req.body.chapters;
 
-  // go through the documents and create the objects
-  req.body.documents.forEach((doc: { id: string }) => {
-    if (doc.id != '') {
-      documents.push({ id: doc.id });
-    }
-  });
-
-  const result = await prisma.chapter.create({
+  const result = await prisma.module.update({
+    where: {
+      id: id
+    },
     data: {
       id: id,
       title: title,
-      documents: {
-        connect: documents,
+      chapters: {
+        connect: chapters,
       },
     },
   });

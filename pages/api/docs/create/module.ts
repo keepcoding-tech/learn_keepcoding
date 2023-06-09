@@ -6,9 +6,9 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
   let chapters: { id: string }[] = [];
 
   // go through the chapters and create the objects
-  req.body.subdocs.forEach((chapter: string) => {
-    if (chapter != '') {
-      chapters.push({ id: chapter });
+  req.body.chapters.forEach((chapter: { id: string }) => {
+    if (chapter.id != '') {
+      chapters.push({ id: chapter.id });
     }
   });
 
