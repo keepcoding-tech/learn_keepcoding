@@ -3,7 +3,7 @@ import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import ToggleThemeState from '../components/theme/toggle/ToggleThemeState';
-import '../styles/globals.css';
+import '../public/styles/globals.css';
 
 function App({ Component, pageProps }: AppProps) {
   const [themeState, setThemeState] = useState('light');
@@ -23,6 +23,7 @@ function App({ Component, pageProps }: AppProps) {
       setThemeState('dark');
     }
   }, []);
+
   return (
     <>
       <SessionProvider session={pageProps.session}>

@@ -14,8 +14,13 @@ const paper = {
   minWidth: '100%',
 };
 
+const copyrightDoc = {
+  margin: '2% 10% 2% 10%',
+};
+
 export const styles = {
   box,
   container,
   paper,
+  copyrightDoc,
 };

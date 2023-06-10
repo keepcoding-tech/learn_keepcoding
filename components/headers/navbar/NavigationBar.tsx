@@ -5,10 +5,10 @@ import Image from 'next/image';
 import Router from 'next/router';
 import React from 'react';
 import ToggleTheme from '../../theme/toggle/ToggleTheme';
-import logo from './../../../public/vercel.svg';
+import logo from './../../../public/img/vercel.svg';
+import { styles } from './NavigationBarStyles';
 import HeaderSearch from './header-search/HeaderSearch';
 import BasicMenu from './menu/AccountMenu';
-import { styles } from './NavigationBarStyles';
 
 export interface INavigationBar {
   sessionStatus: string;

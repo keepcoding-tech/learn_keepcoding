@@ -59,19 +59,23 @@ const EditChapter: NextPage<ICreateChapterTemplate> = (props) => {
   return (
     <>
       <PagePermissionProvider session={session}>
-        <PageLayout>
-          <CreateChapterTemplate
-            id={id}
-            setId={setId}
-            title={title}
-            setTitle={setTitle}
-            documents={documents}
-            setDocuments={setDocuments}
-            alert={alert}
-            submitData={submitData}
-            submitButton='update'
-          />
-        </PageLayout>
+        <PageLayout
+          title="Create Chapter"
+          updatedAt=""
+          childrens={
+            <CreateChapterTemplate
+              id={id}
+              setId={setId}
+              title={title}
+              setTitle={setTitle}
+              documents={documents}
+              setDocuments={setDocuments}
+              alert={alert}
+              submitData={submitData}
+              submitButton="create"
+            />
+          }
+        />
       </PagePermissionProvider>
     </>
   );

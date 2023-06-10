@@ -60,23 +60,27 @@ const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
   return (
     <>
       <PagePermissionProvider session={session}>
-        <PageLayout>
-          <CreateDocumentTemplate
-            id={id}
-            setId={setId}
-            title={title}
-            setTitle={setTitle}
-            content={content}
-            setContent={setContent}
-            alert={alert}
-            submitData={submitData}
-            submitButton='update'
-            author={{
-              name: session?.user?.name || '',
-              email: session?.user?.email || '',
-            }}
-          />
-        </PageLayout>
+        <PageLayout
+          title="Create Document"
+          updatedAt=""
+          childrens={
+            <CreateDocumentTemplate
+              id={id}
+              setId={setId}
+              title={title}
+              setTitle={setTitle}
+              content={content}
+              setContent={setContent}
+              alert={alert}
+              submitData={submitData}
+              submitButton="update"
+              author={{
+                name: session?.user?.name || '',
+                email: session?.user?.email || '',
+              }}
+            />
+          }
+        ></PageLayout>
       </PagePermissionProvider>
     </>
   );

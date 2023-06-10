@@ -59,19 +59,23 @@ const EditModule: NextPage<ICreateModuleTemplate> = (props) => {
   return (
     <>
       <PagePermissionProvider session={session}>
-        <PageLayout>
-          <CreateModuleTemplate
-            id={id}
-            setId={setId}
-            title={title}
-            setTitle={setTitle}
-            chapters={chapters}
-            setChapters={setChapters}
-            alert={alert}
-            submitData={submitData}
-            submitButton='update'
-          />
-        </PageLayout>
+        <PageLayout
+          title="Create Module"
+          updatedAt=""
+          childrens={
+            <CreateModuleTemplate
+              id={id}
+              setId={setId}
+              title={title}
+              setTitle={setTitle}
+              chapters={chapters}
+              setChapters={setChapters}
+              alert={alert}
+              submitData={submitData}
+              submitButton="update"
+            />
+          }
+        />
       </PagePermissionProvider>
     </>
   );

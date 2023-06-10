@@ -40,6 +40,8 @@ body {
 
   --link-color: #1a73e8ff;
   --code-background-color: #fafafaff;
+
+  --divider-color: #ffffffff;
 }
 
 [data-theme='dark'] {
@@ -61,6 +63,12 @@ body {
 
   --link-color: #5ccfe6ff;
   --code-background-color: #282c33ff;
+
+  --divider-color: #99a0a6ff;
+}
+
+code {
+  font-size: 14px;
 }
 
 /* Links */
@@ -154,15 +162,14 @@ h6 {
 }
 
 .long-divider {
-  border-color: var(--secondary-font-color);
+  border-color: var(--divider-color);
   border-width: 1px 0 0 0;
   margin-left: 24px;
   margin-right: 24px;
 }
 
 .short-divider {
-  /* border-color: var(--tertiary-font-color); */
-  border-color: #ffffffff;
+  border-color: var(--divider-color);
   border-width: 1px 0 0 0;
 }
 

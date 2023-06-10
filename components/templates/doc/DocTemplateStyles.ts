@@ -21,6 +21,10 @@ const paperBox = {
   padding: '24px',
 };
 
+const copyrightDoc = {
+  margin: '2% 10% 2% 10%',
+};
+
 export const styles = {
   feedbackButton,
   icon,
@@ -28,4 +32,5 @@ export const styles = {
   grid,
   gridItem,
   paperBox,
+  copyrightDoc,
 };
