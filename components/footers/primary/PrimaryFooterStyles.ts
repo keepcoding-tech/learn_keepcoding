@@ -1,5 +1,5 @@
 const footer = {
-  backgroundColor: 'var(--primary-background-color)',
+  backgroundColor: 'var(--secondary-background-color)',
 };
 
 export const styles = {

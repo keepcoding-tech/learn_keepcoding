@@ -16,60 +16,51 @@ body {
 body {
   font-family: 'Calibri', sans-serif;
   font-size: 1.1em;
-  background-color: var(--secondary-background-color);
+  background-color: var(--primary-background-color);
   color: var(--primary-font-color);
 }
 
 /* Color Scheme */
 :root {
-  --disabled-font-color: #20212480;
-
-  --primary-background-color: #ffffffff;
-  --secondary-background-color: #e8eaedff;
-  --tertiary-background-color: #f0f2f3ff;
+  --primary-background-color: #e7eaedff;
+  --secondary-background-color: #ffffffff;
+  --tertiary-background-color: #f0f3f4ff;
 
   --paper-background-color: #ffffffff;
 
-  --primary-font-color: #5f6368ff;
-  --secondary-font-color: #202124ff;
-  --tertiary-font-color: #505050ff;
+  --primary-font-color: #202124ff;
+  --secondary-font-color: #5f6368ff;
+  --tertiary-font-color: #757575ff;
 
-  --primary-button-color: #e8eaedff;
+  --primary-button-color: #009be5ff;
   --warning-button-color: #ffae57ff;
   --success-button-color: #bae67eff;
   --error-button-color: #ef6b73ff;
   --on-hover-button-color: #c3a6ffff;
 
-  --primary-bold-font-color: #5f6368ff;
-  --secondary-bold-font-color: #5f6f68ff;
-
-  --link-color: #0000eeff;
-  --code-background-color: #f0f3f4ff;
-
+  --link-color: #1a73e8ff;
+  --code-background-color: #fafafaff;
 }
 
 [data-theme='dark'] {
-  --primary-background-color: #171c28ff;
-  --secondary-background-color: #1d2433ff;
-  --tertiary-background-color: #2f3b54ff;
+  --primary-background-color: #202124ff;
+  --secondary-background-color: #171717ff;
+  --tertiary-background-color: #303134ff;
 
-  --paper-background-color: #2f3b54ff;
+  --paper-background-color: #303134ff;
 
-  --primary-font-color: #8695b7ff;
-  --secondary-font-color: #a2aabcff;
-  --tertiary-font-color: #d7dce2ff;
+  --primary-font-color: #d9dce0ff;
+  --secondary-font-color: #99a0a6ff;
+  --tertiary-font-color: #757575ff;
 
-  --primary-button-color: #6679a4ff;
+  --primary-button-color: #009be5ff;
   --warning-button-color: #ffae57ff;
   --success-button-color: #bae67eff;
   --error-button-color: #ef6b73ff;
   --on-hover-button-color: #c3a6ffff;
 
-  --primary-bold-font-color: #ffd580ff;
-  --secondary-bold-font-color: #ffcc66ff;
-
-  --link-color: #5ccfe6;
-  --code-background-color: #282c34;
+  --link-color: #5ccfe6ff;
+  --code-background-color: #282c33ff;
 }
 
 /* Links */
@@ -78,7 +69,7 @@ a {
 }
 
 .link {
-  color: var(--primary-font-color);
+  color: var(--secondary-font-color);
   text-decoration: none;
 }
 
@@ -88,7 +79,7 @@ a {
 
 /* Typography */
 blockquote {
-  background-color: var(--secondary-background-color);
+  background-color: var(--primary-background-color);
   margin-bottom: 24px;
   padding: 10px 20px 5px 20px;
   margin-left: -48px;
@@ -163,13 +154,16 @@ h6 {
 }
 
 .long-divider {
-  border-color: var(--primary-button-color);
+  border-color: var(--secondary-font-color);
+  border-width: 1px 0 0 0;
   margin-left: 24px;
   margin-right: 24px;
 }
 
 .short-divider {
-  border-color: var(--primary-button-color);
+  /* border-color: var(--tertiary-font-color); */
+  border-color: #ffffffff;
+  border-width: 1px 0 0 0;
 }
 
 /* Mui Material */

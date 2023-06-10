@@ -1,6 +1,6 @@
 const accordion = {
-  backgroundColor: 'var(--primary-background-color)',
-  color: 'var(--primary-bold-font-color)',
+  backgroundColor: 'var(--secondary-background-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 const accordionSummary = {
@@ -10,18 +10,18 @@ const accordionSummary = {
 };
 
 const doc = {
-  marginBottom: '12px',
-  fontSize: '14px',
+  margin: '-12px 0px 12px 12px',
+  fontSize: '16px',
 };
 
 const drawer = {
   width: 270,
   flexShrink: 0,
   '& .MuiDrawer-paper': {
+    backgroundColor: 'var(--secondary-background-color)',
+    color: 'var(--secondary-font-color)',
     width: 290,
     boxSizing: 'border-box',
-    backgroundColor: 'var(--primary-background-color)',
-    color: 'var(--primary-font-color)',
   },
   '@media (max-width: 900px)': {
     display: 'none',
@@ -35,39 +35,39 @@ const drawerHeader = {
 };
 
 const fabIn = {
-  backgroundColor: 'var(--primary-button-color)',
-  color: 'var(--tertiary-font-color)',
+  backgroundColor: 'var(--tertiary-background-color)',
+  color: 'var(--secondary-font-color)',
+  '&:hover': {
+    backgroundColor: 'var(--tertiary-background-color)',
+  },
   margin: 0,
   top: 'auto',
   right: 'auto',
   bottom: 20,
   left: 200,
   position: 'fixed',
-  '&:hover': {
-    backgroundColor: 'var(--primary-button-color)',
-  },
 };
 
 const fabOut = {
-  backgroundColor: 'var(--primary-button-color)',
-  color: 'var(--tertiary-font-color)',
+  backgroundColor: 'var(--tertiary-background-color)',
+  color: 'var(--secondary-font-color)',
+  '&:hover': {
+    backgroundColor: 'var(--tertiary-background-color)',
+  },
   margin: 0,
   top: 'auto',
   right: 'auto',
   bottom: 20,
   left: 20,
   position: 'fixed',
-  '&:hover': {
-    backgroundColor: 'var(--primary-button-color)',
-  },
 };
 
 const icon = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 const inputBase = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
   marginLeft: 3,
 };
 
@@ -82,14 +82,16 @@ const paper = {
 };
 
 const moduleText = {
-  color: 'var(--primary-bold-font-color)',
-  margin: '12px 24px',
-  fontSize: '14px',
+  color: 'var(--secondary-font-color)',
+  margin: '12px',
+  fontSize: '18px',
+  justifyContent: 'space-evenly',
+  display: 'flex',
 };
 
 const chapterText = {
-  color: 'var(--primary-bold-font-color)',
-  fontSize: '14px',
+  color: 'var(--secondary-font-color)',
+  fontSize: '16px',
 };
 
 export const styles = {

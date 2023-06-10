@@ -10,7 +10,6 @@ async function handle(req: NextApiRequest, res: NextApiResponse) {
       id: id
     },
     data: {
-      id: id,
       title: title,
       chapters: {
         connect: chapters,

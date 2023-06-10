@@ -13,11 +13,11 @@ const search = {
 };
 
 const searchIcon = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 const searchIconSingle = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
   marginRight: '24px',
   '@media (min-width: 601px)': {
     display: 'none',
@@ -34,7 +34,7 @@ const searchIconWrapper = {
 };
 
 const styledInputBase = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 export const styles = {

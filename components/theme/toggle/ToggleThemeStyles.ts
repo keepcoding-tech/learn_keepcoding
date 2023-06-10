@@ -1,5 +1,5 @@
 const iconButton = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 export const styles = {

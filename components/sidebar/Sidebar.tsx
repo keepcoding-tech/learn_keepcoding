@@ -10,6 +10,7 @@ import Fab from '@mui/material/Fab';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 import SidebarState from './SidebarState';
 import { styles } from './SidebarStyles';
@@ -70,18 +71,18 @@ const Sidebar: React.FC<ISidebar> = (param) => {
                   expandIcon={<ExpandMoreIcon sx={styles.icon} />}
                 >
                   <span style={styles.chapterText}>
-                    {chapter.title.toUpperCase()}
+                    <b>{chapter.title.toUpperCase()}</b>
                   </span>
                 </AccordionSummary>
                 <AccordionDetails>
                   {chapter.documents.map((doc) => (
                     <div key={doc.id} style={styles.doc}>
-                      <a
+                      <Link
                         className="link"
                         href={`/docs/${param.module.id}/${chapter.id}/${doc.id}`}
                       >
                         {doc.title}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </AccordionDetails>

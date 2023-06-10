@@ -1,10 +1,10 @@
 const feedbackButton = {
-  color: 'var(--primary-font-color)',
-  borderColor: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
+  borderColor: 'var(--secondary-font-color)',
 };
 
 const icon = {
-  color: 'var(--primary-font-color)',
+  color: 'var(--secondary-font-color)',
 };
 
 const iconButton = {};

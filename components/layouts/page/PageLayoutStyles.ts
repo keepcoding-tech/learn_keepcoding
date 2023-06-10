@@ -8,7 +8,7 @@ const container = {
 };
 
 const paper = {
-  backgroundColor: 'var(--primary-background-color)',
+  backgroundColor: 'var(--paper-background-color)',
   color: 'var(--primary-font-color)',
   padding: '24px',
   minWidth: '100%',
