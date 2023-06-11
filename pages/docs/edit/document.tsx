@@ -1,8 +1,8 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import CustomError from '../../../components/errors/custom/CustomError';
 import PageLayout from '../../../components/layouts/page/PageLayout';
-import PagePermissionProvider from '../../../components/permission-provider/page/PagePermissionProvider';
 import CreateDocumentTemplate, {
   ICreateDocumentTemplate,
 } from '../../../components/templates/create-document/CreateDocumentTemplate';
@@ -23,6 +23,13 @@ export const getServerSideProps: GetServerSideProps = async (req) => {
     },
   });
 
+  // check if the document exists
+  if (documentResult === null) {
+    return {
+      notFound: true,
+    };
+  }
+
   const result = JSON.parse(JSON.stringify(documentResult));
 
   return { props: result };
@@ -34,6 +41,18 @@ const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
   const [content, setContent] = useState<string>(props.content);
   const [id, setId] = useState<string>(props.id);
   const [title, setTitle] = useState<string>(props.title);
+
+  // if user does not have admin rights, show 403 error
+  const user: any = session?.user;
+  if (!session || user.role !== 'ADMIN') {
+    return (
+      <CustomError
+        statusCode={'403'}
+        title={'access forbiden'}
+        description={"(I'm sorry boddy...)"}
+      />
+    );
+  }
 
   async function submitData(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -59,29 +78,27 @@ const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
 
   return (
     <>
-      <PagePermissionProvider session={session}>
-        <PageLayout
-          title="Create Document"
-          updatedAt=""
-          childrens={
-            <CreateDocumentTemplate
-              id={id}
-              setId={setId}
-              title={title}
-              setTitle={setTitle}
-              content={content}
-              setContent={setContent}
-              alert={alert}
-              submitData={submitData}
-              submitButton="update"
-              author={{
-                name: session?.user?.name || '',
-                email: session?.user?.email || '',
-              }}
-            />
-          }
-        ></PageLayout>
-      </PagePermissionProvider>
+      <PageLayout
+        title="Create Document"
+        updatedAt=""
+        childrens={
+          <CreateDocumentTemplate
+            id={id}
+            setId={setId}
+            title={title}
+            setTitle={setTitle}
+            content={content}
+            setContent={setContent}
+            alert={alert}
+            submitData={submitData}
+            submitButton="update"
+            author={{
+              name: session?.user?.name || '',
+              email: session?.user?.email || '',
+            }}
+          />
+        }
+      ></PageLayout>
     </>
   );
 };

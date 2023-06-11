@@ -2,10 +2,10 @@ import Container from '@mui/material/Container';
 import Box from '@mui/system/Box';
 import Head from 'next/head';
 import React, { useState } from 'react';
-import PrimaryFooter from '../../footers/primary/PrimaryFooter';
-import NavigationBar from '../../headers/navbar/NavigationBar';
-import Sidebar from '../../sidebar/Sidebar';
-import SidebarState from '../../sidebar/SidebarState';
+import DocsFooter from '../../footers/docs/DocsFooter';
+import NavigationHeader from '../../headers/navigation/NavigationHeader';
+import DocsSidebar from '../../sidebars/docs/DocsSidebar';
+import SidebarState from '../../sidebars/docs/DocsSidebarState';
 import { styles } from './DocsLayoutStyles';
 
 export interface IDocsLayout {
@@ -28,25 +28,25 @@ export interface IDocsLayout {
   };
 }
 
-const DocsLayout: React.FC<IDocsLayout> = (param) => {
+const DocsLayout: React.FC<IDocsLayout> = (props) => {
   const [open, setOpen] = useState(true);
 
   return (
     <>
       <Head>
-        <title>kcdp</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>keepcoding</title>
+        <link rel="icon" href="/img/favicon.ico" />
       </Head>
       <Box sx={styles.box}>
         <SidebarState.Provider value={{ open, setOpen }}>
-          <NavigationBar sessionStatus={param.status} />
-          <Sidebar
-            module={param.sidebar.module}
-            chapters={param.sidebar.chapters}
-            currentChapter={param.sidebar.currentChapter}
+          <NavigationHeader sessionStatus={props.status} />
+          <DocsSidebar
+            module={props.sidebar.module}
+            chapters={props.sidebar.chapters}
+            currentChapter={props.sidebar.currentChapter}
           />
-          <Container sx={styles.container}>{param.children}</Container>
-          <PrimaryFooter />
+          <Container sx={styles.container}>{props.children}</Container>
+          <DocsFooter />
         </SidebarState.Provider>
       </Box>
     </>

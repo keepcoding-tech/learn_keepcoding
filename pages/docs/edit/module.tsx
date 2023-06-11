@@ -1,8 +1,8 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import CustomError from '../../../components/errors/custom/CustomError';
 import PageLayout from '../../../components/layouts/page/PageLayout';
-import PagePermissionProvider from '../../../components/permission-provider/page/PagePermissionProvider';
 import CreateModuleTemplate, {
   ICreateModuleTemplate,
 } from '../../../components/templates/create-module/CreateModuleTemplate';
@@ -22,6 +22,13 @@ export const getServerSideProps: GetServerSideProps = async (req) => {
     },
   });
 
+  // check if the module exists
+  if (moduleResult === null) {
+    return {
+      notFound: true,
+    };
+  }
+
   const result = JSON.parse(JSON.stringify(moduleResult));
 
   return { props: result };
@@ -33,6 +40,18 @@ const EditModule: NextPage<ICreateModuleTemplate> = (props) => {
   const [id, setId] = useState<string>(props.id);
   const [title, setTitle] = useState<string>(props.title);
   const [chapters, setChapters] = useState<{ id: string }[]>(props.chapters);
+
+  // if user does not have admin rights, show 403 error
+  const user: any = session?.user;
+  if (!session || user.role !== 'ADMIN') {
+    return (
+      <CustomError
+        statusCode={'403'}
+        title={'access forbiden'}
+        description={"(I'm sorry boddy...)"}
+      />
+    );
+  }
 
   async function submitData(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -58,25 +77,23 @@ const EditModule: NextPage<ICreateModuleTemplate> = (props) => {
 
   return (
     <>
-      <PagePermissionProvider session={session}>
-        <PageLayout
-          title="Create Module"
-          updatedAt=""
-          childrens={
-            <CreateModuleTemplate
-              id={id}
-              setId={setId}
-              title={title}
-              setTitle={setTitle}
-              chapters={chapters}
-              setChapters={setChapters}
-              alert={alert}
-              submitData={submitData}
-              submitButton="update"
-            />
-          }
-        />
-      </PagePermissionProvider>
+      <PageLayout
+        title="Create Module"
+        updatedAt=""
+        childrens={
+          <CreateModuleTemplate
+            id={id}
+            setId={setId}
+            title={title}
+            setTitle={setTitle}
+            chapters={chapters}
+            setChapters={setChapters}
+            alert={alert}
+            submitData={submitData}
+            submitButton="update"
+          />
+        }
+      />
     </>
   );
 };

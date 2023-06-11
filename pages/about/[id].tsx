@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import PageLayout from '../../components/layouts/page/PageLayout';
-import MarkdownPreview from '../../components/markdown/preview/MarkdownPreview';
+import PreviewMarkdown from '../../components/markdown/preview/PreviewMarkdown';
 import prisma from '../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -9,6 +9,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const documentResult = await prisma.document.findUnique({
     where: { id: String(id) },
   });
+
+  // check if the document exists
+  if (documentResult === null) {
+    return {
+      notFound: true,
+    };
+  }
 
   const document = JSON.parse(JSON.stringify(documentResult));
 
@@ -33,7 +40,7 @@ const About: NextPage<Props> = (props) => {
       <PageLayout
         title={props.title}
         updatedAt={props.updatedAt}
-        childrens={<MarkdownPreview>{props.content}</MarkdownPreview>}
+        childrens={<PreviewMarkdown>{props.content}</PreviewMarkdown>}
       ></PageLayout>
     </>
   );

@@ -16,13 +16,15 @@ const PageLayout: React.FC<IPageLayout> = (props) => {
   return (
     <>
       <Head>
-        <title>{props.title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>keepcoding</title>
+        <link rel="icon" href="/img/favicon.ico" />
       </Head>
       <Box sx={styles.box}>
         <Container sx={styles.container} maxWidth="lg">
           <Paper sx={styles.paper}>
-            <Typography variant="h4">{props.title}</Typography>
+            <center>
+              <Typography variant="h4">{props.title.toUpperCase()}</Typography>
+            </center>
             <br />
             <div>{props.childrens}</div>
             <br />

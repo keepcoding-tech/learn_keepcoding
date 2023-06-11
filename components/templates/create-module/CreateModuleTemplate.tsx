@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import React, { SyntheticEvent, useState } from 'react';
-import TextInput from '../../utils/text-input/TextInput';
+import TextInput from '../../utils/inputs/text/TextInput';
 import { styles } from './CreateModuleTemplateStyles';
 
 export interface ICreateModuleTemplate {

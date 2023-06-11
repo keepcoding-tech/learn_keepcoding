@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import CustomError from '../../../components/errors/custom/CustomError';
 import PageLayout from '../../../components/layouts/page/PageLayout';
-import PagePermissionProvider from '../../../components/permission-provider/page/PagePermissionProvider';
 import CreateChapterTemplate, {
   ICreateChapterTemplate,
 } from '../../../components/templates/create-chapter/CreateChapterTemplate';
@@ -13,6 +13,18 @@ const CreateChapter: NextPage<ICreateChapterTemplate> = () => {
   const [id, setId] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [documents, setDocuments] = useState<{ id: string }[]>([]);
+
+  // if user does not have admin rights, show 403 error
+  const user: any = session?.user;
+  if (!session || user.role !== 'ADMIN') {
+    return (
+      <CustomError
+        statusCode={'403'}
+        title={'access forbiden'}
+        description={"(I'm sorry boddy...)"}
+      />
+    );
+  }
 
   async function submitData(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -38,25 +50,23 @@ const CreateChapter: NextPage<ICreateChapterTemplate> = () => {
 
   return (
     <>
-      <PagePermissionProvider session={session}>
-        <PageLayout
-          title="Create Chapter"
-          updatedAt=""
-          childrens={
-            <CreateChapterTemplate
-              id={id}
-              setId={setId}
-              title={title}
-              setTitle={setTitle}
-              documents={documents}
-              setDocuments={setDocuments}
-              alert={alert}
-              submitData={submitData}
-              submitButton="create"
-            />
-          }
-        />
-      </PagePermissionProvider>
+      <PageLayout
+        title="Create Chapter"
+        updatedAt=""
+        childrens={
+          <CreateChapterTemplate
+            id={id}
+            setId={setId}
+            title={title}
+            setTitle={setTitle}
+            documents={documents}
+            setDocuments={setDocuments}
+            alert={alert}
+            submitData={submitData}
+            submitButton="create"
+          />
+        }
+      />
     </>
   );
 };

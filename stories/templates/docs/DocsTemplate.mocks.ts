@@ -1,6 +1,6 @@
-import { IDocTemplate } from '../../../components/templates/doc/DocTemplate';
+import { IDocsTemplate } from '../../../components/templates/docs/DocsTemplate';
 
-const defaultDocTemplate: IDocTemplate = {
+const defaultDocsTemplate: IDocsTemplate = {
   id: 'default-page',
   title: 'Default Page',
   content: `
@@ -33,7 +33,7 @@ int main() {
   },
 };
 
-const emptyDocTemplate: IDocTemplate = {
+const emptyDocTemplate: IDocsTemplate = {
   id: 'empty-page',
   title: 'Empty Page',
   content: '',
@@ -48,4 +48,7 @@ const emptyDocTemplate: IDocTemplate = {
   },
 };
 
-export const mocksDocTemplateProps = { defaultDocTemplate, emptyDocTemplate };
+export const mocksDocsTemplateProps = {
+  defaultDocsTemplate,
+  emptyDocsTemplate: emptyDocTemplate,
+};

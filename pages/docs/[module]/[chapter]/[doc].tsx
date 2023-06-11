@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import DocsLayout from '../../../../components/layouts/docs/DocsLayout';
-import DocTemplate from '../../../../components/templates/doc/DocTemplate';
+import DocsTemplate from '../../../../components/templates/docs/DocsTemplate';
 import prisma from '../../../../lib/prisma';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -42,6 +42,17 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   });
 
+  // check if the module, chapter, and document exists
+  if (
+    moduleResult === null ||
+    chaptersResult === null ||
+    documentResult === null
+  ) {
+    return {
+      notFound: true,
+    };
+  }
+
   const mod = JSON.parse(JSON.stringify(moduleResult));
   const chapters = JSON.parse(JSON.stringify(chaptersResult));
   const document = JSON.parse(JSON.stringify(documentResult));
@@ -77,7 +88,7 @@ const Page: NextPage<Props> = (props) => {
           currentChapter: props.currentChapter,
         }}
       >
-        <DocTemplate
+        <DocsTemplate
           id={props.doc.id}
           title={props.doc.title}
           content={props.doc.content}

@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import NavigationBar from '../components/headers/navbar/NavigationBar';
+import NavigationHeader from '../components/headers/navigation/NavigationHeader';
 
 const Home: NextPage = () => {
   const { status } = useSession();
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <NavigationBar sessionStatus={authStatus} />
+      <NavigationHeader sessionStatus={authStatus} />
       <center>
         <Typography
           variant="h3"

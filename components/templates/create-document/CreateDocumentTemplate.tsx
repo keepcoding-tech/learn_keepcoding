@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import React, { SyntheticEvent } from 'react';
-import MarkdownEditor from '../../markdown/editor/MarkdownEditor';
-import MarkdownPreview from '../../markdown/preview/MarkdownPreview';
-import TextInput from '../../utils/text-input/TextInput';
+import EditorMarkdown from '../../markdown/editor/EditorMarkdown';
+import PreviewMarkdown from '../../markdown/preview/PreviewMarkdown';
+import TextInput from '../../utils/inputs/text/TextInput';
 import { styles } from './CreateDocumentTemplateStyles';
 
 export interface ICreateDocumentTemplate {
@@ -57,21 +57,19 @@ const CreateDocumentTemplate: React.FC<ICreateDocumentTemplate> = (props) => {
             />
           </Grid>
           <Grid item xs={12}>
-            <MarkdownEditor
+            <EditorMarkdown
               id="content"
               markdown={props.content}
               setMarkdown={props.setContent}
             />
           </Grid>
-        <Grid item xs={12}>
-          <Paper sx={styles.paperBox}>
-            <h2>{props.title}</h2>
-            <br />
-            <MarkdownPreview>
-              {props.content}
-            </MarkdownPreview>
-          </Paper>
-        </Grid>
+          <Grid item xs={12}>
+            <Paper sx={styles.paperBox}>
+              <h2>{props.title}</h2>
+              <br />
+              <PreviewMarkdown>{props.content}</PreviewMarkdown>
+            </Paper>
+          </Grid>
           <Grid item xs={2} />
           <Grid item xs={8}>
             <Button
