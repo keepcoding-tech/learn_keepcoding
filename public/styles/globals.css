@@ -43,7 +43,7 @@ body {
 
   --divider-color: #ffffffff;
 
-  --home-image: url('../img/light-home.svg');
+  --layered-waves: url('../img/layered-waves-light.svg');
 }
 
 [data-theme='dark'] {
@@ -68,7 +68,7 @@ body {
 
   --divider-color: #99a0a6ff;
 
-  --home-image: url('../img/dark-home.svg');
+  --layered-waves: url('../img/layered-waves-dark.svg');
 }
 
 code {

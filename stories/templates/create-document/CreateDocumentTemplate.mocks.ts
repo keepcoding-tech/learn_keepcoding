@@ -3,27 +3,27 @@ import { ICreateDocumentTemplate } from '../../../components/templates/create-do
 
 const defaultCreateDocument: ICreateDocumentTemplate = {
   id: '',
-  setId: function (_value: SetStateAction<string>): void { },
+  setId: function (_value: SetStateAction<string>): void {},
   title: '',
-  setTitle: function (_value: SetStateAction<string>): void { },
+  setTitle: function (_value: SetStateAction<string>): void {},
   content: '',
-  setContent: function (_value: SetStateAction<string>): void { },
-  alert: null,
+  setContent: function (_value: SetStateAction<string>): void {},
+  alert: { status: undefined, message: '' },
   submitData: function (_e: SyntheticEvent<Element, Event>): Promise<void> {
     throw new Error('Function not implemented.');
   },
   submitButton: 'create',
   author: {
     name: '',
-    email: ''
-  }
+    email: '',
+  },
 };
 
 const editCreateDocument: ICreateDocumentTemplate = {
   id: 'storybook-document',
-  setId: function (_value: SetStateAction<string>): void { },
+  setId: function (_value: SetStateAction<string>): void {},
   title: 'StoryBook',
-  setTitle: function (_value: SetStateAction<string>): void { },
+  setTitle: function (_value: SetStateAction<string>): void {},
   content: `
 #### THE LAW OF COFFEE
 
@@ -43,18 +43,19 @@ int main() {
 }
 \`\`\`
 `,
-  setContent: function (_value: SetStateAction<string>): void { },
-  alert: null,
+  setContent: function (_value: SetStateAction<string>): void {},
+  alert: { status: 'success', message: 'Document updated succesfully!' },
   submitData: function (_e: SyntheticEvent<Element, Event>): Promise<void> {
     throw new Error('Function not implemented.');
   },
   submitButton: 'update',
   author: {
     name: '',
-    email: ''
-  }
+    email: '',
+  },
 };
 
 export const mocksCreateDocumentTemplateProps = {
-  defaultCreateDocument, editCreateDocument
+  defaultCreateDocument,
+  editCreateDocument,
 };

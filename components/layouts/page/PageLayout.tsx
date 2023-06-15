@@ -3,6 +3,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/system/Box';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 import { styles } from './PageLayoutStyles';
 
@@ -44,7 +45,10 @@ const PageLayout: React.FC<IPageLayout> = (props) => {
                 Apache 2.0 License
               </a>
               . For more information, please refer to the{' '}
-              <a href="/home">KeepCoding Developers Site Policies</a>.
+              <Link href="/about/privacy">
+                KeepCoding Developers Site Policies
+              </Link>
+              .
             </Typography>
           </center>
         </Container>

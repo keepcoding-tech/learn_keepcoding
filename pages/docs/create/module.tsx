@@ -1,3 +1,4 @@
+import { AlertColor } from '@mui/material/Alert';
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
@@ -9,7 +10,10 @@ import CreateModuleTemplate, {
 
 const CreateModule: NextPage<ICreateModuleTemplate> = () => {
   const { data: session } = useSession();
-  const [alert, setAlert] = useState<string | null>(null);
+  const [alert, setAlert] = useState<{
+    status: AlertColor | undefined;
+    message: string;
+  }>({ status: undefined, message: '' });
   const [id, setId] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [chapters, setChapters] = useState<{ id: string }[]>([]);
@@ -34,16 +38,19 @@ const CreateModule: NextPage<ICreateModuleTemplate> = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        doc: { id, title },
+        module: { id, title },
         chapters: chapters,
       }),
     })
       .then((response) => response.json())
       .then(async (response) => {
         if (response.error) {
-          setAlert(response.error);
+          setAlert({ status: 'error', message: response.error });
         } else {
-          setAlert('Module created succesfully!!');
+          setAlert({
+            status: 'success',
+            message: 'Module created succesfully!!',
+          });
         }
       });
   }

@@ -2,6 +2,7 @@
 .env
 
 # dependencies
+package-lock.json
 /node_modules
 /.pnp
 .pnp.js
@@ -28,6 +29,8 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.development
+.env.sample
 
 # vercel
 .vercel
@@ -35,3 +38,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cypress
+/cypress/downloads
+/cypress/fixtures
+/cypress/screenshots

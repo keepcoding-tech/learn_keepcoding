@@ -1,23 +1,45 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
+import { validateDocumentExistence } from '../../../../lib/utils/documents';
+import { isAdmin } from '../../../../lib/utils/users';
 
-async function handle(req: NextApiRequest, res: NextApiResponse) {
-  const { id, title } = req.body.doc;
-  const documents = req.body.documents;
+const update = async (req: NextApiRequest, res: NextApiResponse) => {
+  // if the user is not admin, don't make the action
+  if (!(await isAdmin(req, res))) {
+    return res.status(403).json({ error: 'Access Forbiden' });
+  }
 
-  const result = await prisma.chapter.update({
+  // get the chapter's ID
+  const chapterId = req.body.chapter.id;
+
+  // go through the documents and create the objects
+  let documents: { id: string }[] = [];
+  req.body.documents.forEach(async (doc: { id: string }) => {
+    // check if the document exists
+    if (await validateDocumentExistence(doc.id)) {
+      documents.push({ id: doc.id });
+    } else {
+      return await res
+        .status(400)
+        .send({ error: `Document with ID ${doc.id} does not exist!` });
+    }
+  });
+
+  // insert the new document into the database
+  await prisma.chapter.update({
     where: {
-      id: id
+      id: chapterId,
     },
     data: {
-      title: title,
+      title: req.body.chapter.title,
       documents: {
         connect: documents,
       },
     },
   });
 
-  res.json(result);
-}
+  // return a success status
+  return res.status(201).json({ success: true });
+};
 
-export default handle;
+export default update;

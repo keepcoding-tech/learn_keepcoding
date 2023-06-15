@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import Alert, { AlertColor } from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -16,7 +16,7 @@ export interface ICreateDocumentTemplate {
   setTitle: React.Dispatch<React.SetStateAction<string>>;
   content: string;
   setContent: React.Dispatch<React.SetStateAction<string>>;
-  alert: string | null;
+  alert: { status: AlertColor | undefined; message: string };
   submitData: (_e: SyntheticEvent<Element, Event>) => Promise<void>;
   submitButton: string;
   author: {
@@ -28,7 +28,9 @@ export interface ICreateDocumentTemplate {
 const CreateDocumentTemplate: React.FC<ICreateDocumentTemplate> = (props) => {
   return (
     <>
-      {props.alert ? <Alert severity="error">{props.alert}</Alert> : null}
+      {props.alert.status ? (
+        <Alert severity={props.alert.status}>{props.alert.message}</Alert>
+      ) : null}
       <br />
       <Box component="form">
         <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

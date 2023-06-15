@@ -1,3 +1,4 @@
+import { AlertColor } from '@mui/material/Alert';
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
@@ -36,7 +37,10 @@ export const getServerSideProps: GetServerSideProps = async (req) => {
 
 const EditChapter: NextPage<ICreateChapterTemplate> = (props) => {
   const { data: session } = useSession();
-  const [alert, setAlert] = useState<string | null>(null);
+  const [alert, setAlert] = useState<{
+    status: AlertColor | undefined;
+    message: string;
+  }>({ status: undefined, message: '' });
   const [id, setId] = useState<string>(props.id);
   const [title, setTitle] = useState<string>(props.title);
   const [documents, setDocuments] = useState<{ id: string }[]>(props.documents);
@@ -61,16 +65,19 @@ const EditChapter: NextPage<ICreateChapterTemplate> = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        doc: { id, title },
+        chapter: { id, title },
         documents: documents,
       }),
     })
       .then((response) => response.json())
       .then(async (response) => {
         if (response.error) {
-          setAlert(response.error);
+          setAlert({ status: 'error', message: response.error });
         } else {
-          setAlert('Chapter created succesfully!!');
+          setAlert({
+            status: 'success',
+            message: 'Chapter updated succesfully!!',
+          });
         }
       });
   }

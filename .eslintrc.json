@@ -3,7 +3,8 @@
     "plugin:storybook/recommended",
     "next",
     "next/core-web-vitals",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:cypress/recommended"
   ],
   "globals": {
     "React": "readonly"

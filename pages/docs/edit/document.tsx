@@ -1,5 +1,7 @@
+import { AlertColor } from '@mui/material/Alert';
 import { GetServerSideProps, NextPage } from 'next';
 import { useSession } from 'next-auth/react';
+import Router from 'next/router';
 import React, { useState } from 'react';
 import CustomError from '../../../components/errors/custom/CustomError';
 import PageLayout from '../../../components/layouts/page/PageLayout';
@@ -37,7 +39,10 @@ export const getServerSideProps: GetServerSideProps = async (req) => {
 
 const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
   const { data: session } = useSession();
-  const [alert, setAlert] = useState<string | null>(null);
+  const [alert, setAlert] = useState<{
+    status: AlertColor | undefined;
+    message: string;
+  }>({ status: undefined, message: '' });
   const [content, setContent] = useState<string>(props.content);
   const [id, setId] = useState<string>(props.id);
   const [title, setTitle] = useState<string>(props.title);
@@ -62,16 +67,21 @@ const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        doc: { id, title },
+        document: { id, title },
         content: content,
+        author: user.email,
       }),
     })
       .then((response) => response.json())
       .then(async (response) => {
         if (response.error) {
-          setAlert(response.error);
+          setAlert({ status: 'error', message: response.error });
         } else {
-          setAlert('Document created succesfully!!');
+          setAlert({
+            status: 'success',
+            message: 'Document updated succesfully!!',
+          });
+          Router.push(`/about/${id}`);
         }
       });
   }

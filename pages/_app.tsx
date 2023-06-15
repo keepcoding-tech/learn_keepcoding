@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import ToggleThemeState from '../components/theme/toggle/ToggleThemeState';
 import '../public/styles/globals.css';
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [themeState, setThemeState] = useState('light');
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={session}>
         <StyledEngineProvider injectFirst>
           <ToggleThemeState.Provider value={{ themeState, setThemeState }}>
             <Component {...pageProps} />
