@@ -51,7 +51,7 @@ const CreateDocument: NextPage<ICreateDocumentTemplate> = () => {
         } else {
           setAlert({
             status: 'success',
-            message: 'Chapter created succesfully!!',
+            message: 'Document created succesfully!!',
           });
           Router.push(`/about/${id}`);
         }

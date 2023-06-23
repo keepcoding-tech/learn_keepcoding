@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
-import { validateChapterExistence } from '../../../../lib/utils/chapters';
+import { updateModuleIdForChapter, validateChapterExistence } from '../../../../lib/utils/chapters';
 import { validateModuleExistence } from '../../../../lib/utils/modules';
 import { isAdmin } from '../../../../lib/utils/users';
 
@@ -23,13 +23,17 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
   // go through the chapters and create the objects
   let chapters: { id: string }[] = [];
   req.body.chapters.forEach(async (chapter: { id: string }) => {
-    if (await validateChapterExistence(chapter.id)) {
-      chapters.push({ id: chapter.id });
-    } else {
+    if (!(await validateChapterExistence(chapter.id))) {
       return await res
         .status(400)
         .send({ error: `Chapter with ID ${chapter.id} does not exist!` });
     }
+
+    // add the new chapter to the list
+    chapters.push({ id: chapter.id });
+
+    // update the module id for each chapter
+    updateModuleIdForChapter(moduleId, chapter.id);
   });
 
   // insert the new document into the database

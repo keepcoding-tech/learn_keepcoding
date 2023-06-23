@@ -89,7 +89,7 @@ const EditDocument: NextPage<ICreateDocumentTemplate> = (props) => {
   return (
     <>
       <PageLayout
-        title="Create Document"
+        title="Edit Document"
         updatedAt=""
         childrens={
           <CreateDocumentTemplate

@@ -7,7 +7,9 @@ import prisma from '../prisma';
 export const validateUserExistence = {
   // Verify whether a user with the provided email is already in use.
   byEmail: async function email(email: string): Promise<User | null> {
-    return await prisma.user.findFirst({ where: { email: email } });
+    const user = await prisma.user.findFirst({ where: { email: email } });
+    console.log({user});
+    return user;
   },
 };
 

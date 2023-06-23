@@ -85,7 +85,7 @@ const EditModule: NextPage<ICreateModuleTemplate> = (props) => {
   return (
     <>
       <PageLayout
-        title="Create Module"
+        title="Edit Module"
         updatedAt=""
         childrens={
           <CreateModuleTemplate

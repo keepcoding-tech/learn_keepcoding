@@ -85,7 +85,7 @@ const EditChapter: NextPage<ICreateChapterTemplate> = (props) => {
   return (
     <>
       <PageLayout
-        title="Create Chapter"
+        title="Edit Chapter"
         updatedAt=""
         childrens={
           <CreateChapterTemplate

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '../../../../lib/prisma';
-import { validateDocumentExistence } from '../../../../lib/utils/documents';
+import { updateChapterIdForDocument, validateDocumentExistence } from '../../../../lib/utils/documents';
 import { isAdmin } from '../../../../lib/utils/users';
 
 const update = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -16,13 +16,17 @@ const update = async (req: NextApiRequest, res: NextApiResponse) => {
   let documents: { id: string }[] = [];
   req.body.documents.forEach(async (doc: { id: string }) => {
     // check if the document exists
-    if (await validateDocumentExistence(doc.id)) {
-      documents.push({ id: doc.id });
-    } else {
+    if (!(await validateDocumentExistence(doc.id))) {
       return await res
         .status(400)
         .send({ error: `Document with ID ${doc.id} does not exist!` });
     }
+
+    // add the new document to the list
+    documents.push({ id: doc.id });
+
+    // update the chapter id for each document
+    updateChapterIdForDocument(chapterId, doc.id);
   });
 
   // insert the new document into the database

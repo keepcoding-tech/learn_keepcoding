@@ -21,7 +21,7 @@
     "migrate:postgres": "dotenv -e .env.sample -- npx prisma migrate deploy"
   },
   "prisma": {
-    "seed": "dotenv -e .env.sample -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "dotenv -e .env.development -- ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -35,12 +35,12 @@
     "next": "13.1.2",
     "next-auth": "^4.18.8",
     "nodemailer": "^6.9.0",
+    "prisma": "^4.9.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
     "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^3.0.1",
-    "prisma": "^4.9.0"
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -65,7 +65,7 @@
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-storybook": "^0.6.10",
     "husky": "^8.0.3",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.8",
     "typescript": "4.9.4"
   },
   "resolutions": {
